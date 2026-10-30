@@ -18,6 +18,12 @@ Closes #
 
 None
 
+## Differences with the approved plan
+
+<!-- Technical changes made after the plan was approved, and why. Changes to the result, scope or behavior need approval before implementing. Write "None" if there are none. -->
+
+None
+
 ## Evidence
 
 - [ ] `npm run lint` passes

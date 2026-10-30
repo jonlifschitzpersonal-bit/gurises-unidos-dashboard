@@ -60,12 +60,30 @@ All tokens live in `app/globals.css`. Rules ([ADR 0002](docs/adr/0002-design-tok
 
 ## How to work
 
-1. **Plan before code:** observable result, scope, states, what is reused or created, files touched. Wait for approval.
-2. Implement in small slices.
-3. Run `npm run lint` and `npm run build`.
-4. **Verify with evidence:** measure in the browser against Figma and report each check as PASS, FAIL, UNVERIFIED or OUT OF SCOPE. What wasn't tested is UNVERIFIED, never PASS.
-5. When a slice closes, update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md` in the same PR. A new architecture decision gets an ADR in `docs/adr/`.
-6. If you assume something, say it and name the risk.
+Work goes in **slices**: a small piece of the product with an observable result and a "done when". One slice = one issue = one branch = one PR. Small, because a short diff can be reviewed in full.
+
+1. **Read first:** the issue, the state docs, the exact Figma node (with its description and annotations) and the existing components and tokens.
+2. **Plan before code, and wait for approval.** The plan answers:
+   - the observable result;
+   - what is in scope and what is out, on purpose;
+   - the states;
+   - the Figma evidence;
+   - the decisions already approved (issue, ADR);
+   - assumptions, each with its risk;
+   - what is reused, extended, created or kept internal to the component (create only with real reuse);
+   - the tokens used;
+   - the files touched and why;
+   - what is fictitious;
+   - the checks to run;
+   - the product decisions still open. Ask them; don't decide them.
+
+   For layout questions, show 2 or 3 ASCII wireframes before Figma or code: they are cheap and keep the discussion on structure.
+3. **Implement only what was approved.** If the plan has to change in a way that affects the result, scope or behavior, stop and ask. Smaller technical changes are listed in the PR under "Differences with the approved plan".
+4. Run `npm run lint` and `npm run build`.
+5. **Verify with evidence:** measure in the browser against Figma and report each check as PASS, FAIL, UNVERIFIED or OUT OF SCOPE. What wasn't tested is UNVERIFIED, never PASS.
+6. **Close the slice:** update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md` in the same PR, and add an ADR in `docs/adr/` for a new architecture decision. A slice is not closed with a FAIL, or with a check its issue requires left UNVERIFIED.
+7. **Stop.** Don't start the next slice until this PR is merged and the next one is asked for.
+8. If you assume something, say it and name the risk.
 
 ## Git workflow
 
