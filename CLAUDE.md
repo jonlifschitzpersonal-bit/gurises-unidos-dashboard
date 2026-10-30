@@ -63,8 +63,20 @@ All tokens live in `app/globals.css`. Rules ([ADR 0002](docs/adr/0002-design-tok
 2. Implement in small slices.
 3. Run `npm run lint` and `npm run build`.
 4. **Verify with evidence:** measure in the browser against Figma and report each check as PASS, FAIL, UNVERIFIED or OUT OF SCOPE. What wasn't tested is UNVERIFIED, never PASS.
-5. When a slice closes, update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md`. A new architecture decision gets an ADR in `docs/adr/`.
+5. When a slice closes, update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md` in the same PR. A new architecture decision gets an ADR in `docs/adr/`.
 6. If you assume something, say it and name the risk.
+
+## Git workflow
+
+The backlog lives in [GitHub Issues](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues), grouped by milestone. `main` is protected: changes reach it only through a pull request, merged with squash.
+
+1. **Start from an issue.** If there is none, create it (`gh issue create`) before the branch.
+2. **Update `main` and branch from it:** `git switch main && git pull`, then `git switch -c <type>/<issue>-<slug>`. Types: `feat`, `fix`, `docs`, `chore`, `refactor`. Example: `feat/15-app-shell`.
+3. **One branch, one issue.** Don't mix unrelated changes or refactors; open another issue instead.
+4. **Read the diff before every commit** (`git status`, `git diff --staged`). Never commit secrets, `.env*` or generated files.
+5. **Commits with one intent each:** imperative subject in English, under 72 characters, and a body that says why when it isn't obvious.
+6. **Open the PR with `gh pr create`**, filling every section of `.github/pull_request_template.md`. Include `Closes #N` so the issue closes on merge.
+7. **Don't merge your own PR.** Jonathan reviews it on GitHub and merges it.
 
 ## Don't
 
