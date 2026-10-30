@@ -280,7 +280,7 @@
       },
       {
         "name": "The System-Only Rule",
-        "body": "Components use semantic colors only. A color that is not in this list does not exist yet: it is proposed, added in Figma, then in `app/globals.css`.",
+        "body": "Components use semantic colors only. A color that is not in this list does not exist yet: it is proposed, added in Figma, then exported to `app/tokens.css` (`npm run tokens`).",
         "section": "colors"
       },
       {
@@ -296,7 +296,7 @@
     ],
     "dos": [
       "**Do** use only the semantic tokens above, by their code names (`text-text-muted`, `bg-bg-surface`).",
-      "**Do** add a missing value as a token, in Figma first and then in `app/globals.css`.",
+      "**Do** add a missing value as a token, in Figma first and then exported to `app/tokens.css` (`npm run tokens`).",
       "**Do** pair every green or red with an arrow and a written value, or a fixed label.",
       "**Do** keep secondary text at Slate or darker (at least 4.5:1).",
       "**Do** show a 2px Signal Blue focus ring on every interactive element.",

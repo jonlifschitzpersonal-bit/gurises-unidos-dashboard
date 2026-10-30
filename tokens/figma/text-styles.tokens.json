@@ -1,0 +1,98 @@
+{
+  "$extensions": {
+    "figma": {
+      "fileKey": "E8QHJIEO0sSdSqPPDCjNQd",
+      "source": "local text styles"
+    }
+  },
+  "label": {
+    "md": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontWeight": 500,
+        "fontSize": "14px",
+        "lineHeight": "20px"
+      },
+      "$extensions": {
+        "figma": {
+          "styleId": "S:dadfce589b892b4212fca87484d75ded9622172e,"
+        }
+      }
+    },
+    "sm": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontWeight": 500,
+        "fontSize": "13px",
+        "lineHeight": "20px"
+      },
+      "$extensions": {
+        "figma": {
+          "styleId": "S:27f608bb82c5e87c833c97a53529d18c7f107064,"
+        }
+      }
+    },
+    "xs": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontWeight": 500,
+        "fontSize": "12px",
+        "lineHeight": "16px"
+      },
+      "$extensions": {
+        "figma": {
+          "styleId": "S:c1a1efa719ccdb0320dd4bd0dd0207f7f253f856,"
+        }
+      }
+    }
+  },
+  "body": {
+    "sm": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontWeight": 400,
+        "fontSize": "14px",
+        "lineHeight": "20px"
+      },
+      "$extensions": {
+        "figma": {
+          "styleId": "S:1e0838fa952c0a5b15164fe641a18f4f50760bc2,"
+        }
+      }
+    }
+  },
+  "heading": {
+    "metric": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontWeight": 600,
+        "fontSize": "28px",
+        "lineHeight": "36px"
+      },
+      "$extensions": {
+        "figma": {
+          "styleId": "S:29abc0752d1354b0685540bb7ed47aa9e74dedad,"
+        }
+      }
+    },
+    "section": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Inter",
+        "fontWeight": 600,
+        "fontSize": "20px",
+        "lineHeight": "28px"
+      },
+      "$extensions": {
+        "figma": {
+          "styleId": "S:0d7f82dcf2b8b69f9b11ecdcddb7c5ddf9aaae4c,"
+        }
+      }
+    }
+  }
+}

@@ -17,7 +17,8 @@ This file holds stable rules only. Project status goes in `docs/`, never here.
 | Command | Use |
 |---|---|
 | `npm run dev` | Dev server at http://localhost:3000 |
-| `npm run lint` | ESLint |
+| `npm run lint` | ESLint, and checks that `app/tokens.css` matches the Figma export |
+| `npm run tokens` | Builds `app/tokens.css` from `tokens/figma/` (after exporting from Figma) |
 | `npm run build` | Production build (what Vercel runs) |
 
 A change is not done until `npm run lint` and `npm run build` pass.
@@ -28,9 +29,11 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4. No `src/` fol
 
 | Where | What goes there |
 |---|---|
-| `app/` | Routes (`page.tsx`), the root `layout.tsx` and `globals.css` |
+| `app/` | Routes (`page.tsx`), the root `layout.tsx`, `globals.css` and the generated `tokens.css` |
 | `app/tokens/` | Page that shows every design token with its class (`/tokens`) |
 | `components/` | System components (created in the component phase) |
+| `tokens/figma/` | The Figma export (DTCG JSON) the token CSS is built from. Never edited by hand |
+| `scripts/tokens/` | The token build (Style Dictionary) and the Figma script that exports the text styles |
 
 ## Design source
 
@@ -40,14 +43,23 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4. No `src/` fol
 
 ## Design tokens
 
-All tokens live in `app/globals.css`. Rules ([ADR 0002](docs/adr/0002-design-tokens-in-tailwind-theme.md)):
+Tokens are **generated from Figma**, never written by hand ([ADR 0007](docs/adr/0007-tokens-generated-from-figma.md)): `tokens/figma/*.tokens.json` (the export) → `npm run tokens` (Style Dictionary) → `app/tokens.css`, which `app/globals.css` imports. `npm run lint` fails if `app/tokens.css` doesn't match the export.
+
+**To change or add a token:**
+1. Change it in Figma first (semantic colors point to a primitive; set the WEB code syntax to `var(--<name with dashes>)`).
+2. Export the variables with Figma Console MCP: `figma_export_tokens` with `format: "dtcg"`, `sizeUnit: "px"` and `outputPath` set to `tokens/figma/variables.tokens.json`.
+3. If text styles changed, run `scripts/tokens/export-text-styles.figma.js` with `figma_execute` and save the result as `tokens/figma/text-styles.tokens.json`.
+4. Run `npm run tokens`. If it stops, Figma and code don't map 1 to 1: read the error and fix it in Figma, or extend `scripts/tokens/build.mjs` for a new kind of token.
+5. Review the diff of the JSON and of `app/tokens.css`: it should show only the change you made.
+
+Rules ([ADR 0002](docs/adr/0002-design-tokens-in-tailwind-theme.md)):
 
 - **Names match Figma**, slashes become dashes: `color/text/muted` → `--color-text-muted` → `text-text-muted`. Color classes repeat words on purpose (`text-text-muted`, `bg-bg-surface`); don't rename them.
 - **Only the system exists.** Tailwind's color palette, font sizes and radii are reset. `bg-red-500`, `text-sm` or `rounded-xl` generate nothing.
 - **Components use semantic colors only.** Primitives (`--gray-600`) are plain variables outside `@theme` and have no classes.
 - **Text styles are one class each** (`text-label-md` sets size, line height and weight). Don't combine `font-*` and `leading-*` to imitate one.
 - **Spacing is Tailwind's default scale**, which matches Figma's `space/N` = N × 4px (`space/1-5` → `p-1.5`).
-- **No arbitrary values** (`p-[22px]`, `text-[#333]`). If a value has no token, stop and propose one; it gets added in Figma and here.
+- **No arbitrary values** (`p-[22px]`, `text-[#333]`). If a value has no token, stop and propose one; it gets added in Figma and exported.
 - Dark mode is not built yet. When it is, it redefines the semantic colors; components don't change.
 
 ## Conventions
@@ -91,7 +103,7 @@ Work goes in **slices**: a small piece of the product with an observable result 
 
 [Impeccable](https://impeccable.style/docs) reviews the design on top of the Figma ledger: the ledger checks that the code matches Figma; Impeccable checks that the design holds up.
 
-- **`PRODUCT.md` and `DESIGN.md` are derived, not sources of truth.** `PRODUCT.md` comes from `docs/PROJECT_CONTEXT.md` and the ADRs; `DESIGN.md` (and `.impeccable/design.json`) from the Figma variables and components and `app/globals.css`. When those change, regenerate them (`/impeccable init`, `/impeccable document`) and run `/impeccable doctor`. If they disagree, the sources win.
+- **`PRODUCT.md` and `DESIGN.md` are derived, not sources of truth.** `PRODUCT.md` comes from `docs/PROJECT_CONTEXT.md` and the ADRs; `DESIGN.md` (and `.impeccable/design.json`) from the Figma variables and components and `app/tokens.css`. When those change, regenerate them (`/impeccable init`, `/impeccable document`) and run `/impeccable doctor`. If they disagree, the sources win.
 - **The design hook is on** (`.impeccable/config.json`): it checks every UI edit and, at the end of a turn, the files touched. Triage each finding: fix real problems; an ignore needs evidence and is disclosed in the closing commit.
 - **At the close of every UI slice, run `critique` and `audit`.** Fix each high-priority finding in the slice or file it as an issue.
 - **It can improve the system, not skip it.** A color, size or type style that doesn't exist becomes a token, in Figma first. Product calls (what is shown, what a text says) are proposed and Jonathan decides. Any command that changes something is worked as a slice.

@@ -129,11 +129,11 @@ components:
 
 <!--
   Impeccable's record of the visual system. Not a source of truth: the tokens
-  come from app/globals.css and the Figma variables, and the components from
+  come from the Figma variables (built into app/tokens.css), and the components from
   the Figma file "Design Engineer Journey" (page 02 - Components). Token keys
   are the code names (color/text/muted → text-muted). When Figma or
-  globals.css change, regenerate this file (`/impeccable document`) and
-  check it with `/impeccable doctor`. If they disagree, Figma and globals.css win.
+  app/tokens.css change, regenerate this file (`/impeccable document`) and
+  check it with `/impeccable doctor`. If they disagree, Figma and tokens.css win.
 -->
 
 # Design System: Gurises Unidos dashboard
@@ -183,7 +183,7 @@ A near-monochrome gray system with one soft blue and two feedback hues, all from
 
 **The Color Plus Words Rule.** Green and red never travel alone: a trend carries its arrow and its written value, and a badge carries its fixed label ("Activo", "Pausado", "Error").
 
-**The System-Only Rule.** Components use semantic colors only. A color that is not in this list does not exist yet: it is proposed, added in Figma, then in `app/globals.css`.
+**The System-Only Rule.** Components use semantic colors only. A color that is not in this list does not exist yet: it is proposed, added in Figma, then exported to `app/tokens.css` (`npm run tokens`).
 
 ## Typography
 
@@ -255,7 +255,7 @@ Specs come from the Figma components. Which ones are built in code is in `docs/C
 
 ### Do:
 - **Do** use only the semantic tokens above, by their code names (`text-text-muted`, `bg-bg-surface`).
-- **Do** add a missing value as a token, in Figma first and then in `app/globals.css`.
+- **Do** add a missing value as a token, in Figma first and then exported to `app/tokens.css` (`npm run tokens`).
 - **Do** pair every green or red with an arrow and a written value, or a fixed label.
 - **Do** keep secondary text at Slate or darker (at least 4.5:1).
 - **Do** show a 2px Signal Blue focus ring on every interactive element.

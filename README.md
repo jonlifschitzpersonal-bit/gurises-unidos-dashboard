@@ -33,7 +33,8 @@ npm run dev      # http://localhost:3000
 | `npm run dev` | Development server with live reload |
 | `npm run build` | Production build (the same check Vercel runs) |
 | `npm run start` | Serves the production build |
-| `npm run lint` | ESLint |
+| `npm run lint` | ESLint, and checks that `app/tokens.css` matches the Figma export |
+| `npm run tokens` | Builds `app/tokens.css` from the Figma export in `tokens/figma/` |
 
 ## Project structure
 
@@ -43,13 +44,16 @@ app/
 ├── layout.tsx        # wraps every page: font (Inter), language, metadata
 ├── page.tsx          # home ( / )
 ├── tokens/page.tsx   # every design token with its Tailwind class ( /tokens )
-└── globals.css       # Tailwind and the design tokens (@theme)
+├── globals.css       # Tailwind, imports tokens.css, base styles
+└── tokens.css        # GENERATED design tokens (@theme), from tokens/figma/
 docs/
 ├── PROJECT_CONTEXT.md   # product, users, states, sources of truth
 ├── CURRENT_STATE.md     # what is built and verified
 ├── PENDING_TASKS.md     # what comes next and known debt
 ├── adr/                 # architecture decisions, one per file
 └── research/            # the context behind each decision
+scripts/tokens/          # token build (Style Dictionary) and the Figma text style export
+tokens/figma/            # the Figma export (DTCG JSON) the tokens are built from
 CLAUDE.md                # rules for coding agents
 ```
 
@@ -63,6 +67,8 @@ CLAUDE.md                # rules for coding agents
 
 The Tailwind theme only contains the tokens from Figma, with the same names (slashes become dashes: `color/text/muted` → `--color-text-muted` → `text-text-muted`). Why: [ADR 0002](docs/adr/0002-design-tokens-in-tailwind-theme.md).
 
+The CSS is **generated, not copied**: the Figma variables and text styles are exported as DTCG JSON with Figma Console MCP, and [Style Dictionary](https://styledictionary.com) builds `app/tokens.css` from them (`npm run tokens`). The build fails if a name stops matching the Figma code syntax, and `npm run lint` fails if the CSS was edited by hand. Why: [ADR 0007](docs/adr/0007-tokens-generated-from-figma.md).
+
 - **Colors:** Tailwind's palette is turned off. Primitives (`--gray-600`) are plain CSS variables and generate no classes; components use the semantic tokens.
 - **Text styles:** one class per Figma text style (`text-label-md` sets size, line height and weight).
 - **Radii:** `rounded-sm | md | lg | full` with the Figma values (6, 8, 12, 9999px).
@@ -72,6 +78,7 @@ The Tailwind theme only contains the tokens from Figma, with the same names (sla
 
 - [x] Scaffold the Next.js + Tailwind project
 - [x] Load the Figma tokens into the Tailwind theme
+- [x] Generate the token CSS from a Figma export (Style Dictionary)
 - [x] Agent-ready docs (`CLAUDE.md`, context, state, decisions)
 - [x] Team workflow: issue backlog, issue and pull request templates, protected `main` history
 - [ ] System components with variants, accessibility and Storybook
