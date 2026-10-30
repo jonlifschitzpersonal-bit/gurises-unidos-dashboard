@@ -56,6 +56,7 @@ Known trade-off: with an active search, the indicators show the total while the 
 | Product rules and states | This file |
 | Decisions | [`docs/adr/`](adr/README.md) |
 | Status | [`CURRENT_STATE.md`](CURRENT_STATE.md) and [`PENDING_TASKS.md`](PENDING_TASKS.md) |
+| Backlog (each task in detail) | [GitHub Issues](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues), grouped by milestone. The order of work is in `PENDING_TASKS.md` |
 
 ## Data
 
