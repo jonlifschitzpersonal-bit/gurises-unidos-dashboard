@@ -1,32 +1,33 @@
 # Pending tasks
 
-> What comes next, what is blocked and the debt we keep on purpose.
+> The order of work, what is blocked and the debt we keep on purpose.
+> Each task is a [GitHub issue](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues); this file keeps the order and the reasons, the issues keep the details.
 > Last update: 2026-10-30.
 
-## Next
+## Next, in order
 
-| # | Task | Notes |
-|---|---|---|
-| 1 | Git workflow: branches, PRs and issues | Install and authenticate GitHub CLI (`gh`) first |
-| 2 | System components in code: `Icon`, `Button`, `MetricCard`, `StatusBadge` | Variants with `cva`, accessibility, Storybook |
-| 3 | Design the Gurises Unidos screens in Figma | Main screen at desktop and mobile, plus the 6 states. New components: `Tabs`, `Sidebar`, table, selectors, search |
-| 4 | Slice 1: app shell | Sidebar, top bar, tabs |
-| 5 | Slice 2: indicators + preview deploy on Vercel | Reach indicator and 3 secondary cards |
-| 6 | Slices 3–4: projects table, filters and states | Global year and department filters, local search, the 6 states |
-| 7 | Flows: "Cargar métricas" and "Nuevo proyecto" | Designed and built complete; confirming saves nothing ([ADR 0006](adr/0006-backend-actions-without-persistence.md)) |
+| # | Task | Milestone | Notes |
+|---|---|---|---|
+| 1 | [#2](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/2) Storybook | System components | Needed to see every component variant |
+| 2 | [#12](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/12) `Icon`, [#3](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/3) `Button`, [#13](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/13) `StatusBadge`, [#4](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/4) `MetricCard` | System components | Variants with `cva`, accessibility, stories |
+| 3 | [#7](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/7) Design the screens in Figma | Dashboard v1 | Desktop, mobile and the 6 states; new components `Tabs`, `Sidebar`, table, selectors, search |
+| 4 | [#15](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/15) Slice 1: app shell | Dashboard v1 | Blocked by #7 |
+| 5 | [#8](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/8) Slice 2: indicators + preview deploy | Dashboard v1 | Blocked by #4, #6, #15 |
+| 6 | [#17](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/17) Slice 3: projects table, [#18](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/18) Slice 4: filters, search and states | Dashboard v1 | |
+| 7 | [#9](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/9) "Cargar métricas", [#10](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/10) "Nuevo proyecto" | Dashboard v1 | Built complete; confirming saves nothing ([ADR 0006](adr/0006-backend-actions-without-persistence.md)) |
 
 ## Product decisions pending
 
-| Decision | Options |
+| Decision | Issue |
 |---|---|
-| Fictitious data set | How many projects and years; which project names and statuses |
+| Fictitious data set: how many projects and years, names and statuses | [#6](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/6) |
 
 ## Known debt
 
-| Item | Why it waits |
-|---|---|
-| Tabular figures in the `heading/metric` text style | Must be enabled in Figma first, then added to the text style class |
-| `color/action/secondary/bg-pressed` token for the Button pressed state | Missing in Figma |
-| `app/favicon.ico` is still the Next.js default | Needs the Gurises Unidos mark; replace it before the first deploy |
-| Dark mode | Figma Starter allows one mode per collection; it will be built in code by redefining the semantic colors |
-| No backend, no login | Out of scope for v1 ([ADR 0005](adr/0005-fictitious-data-no-backend.md)). Actions like "Nuevo proyecto" are built but don't save ([ADR 0006](adr/0006-backend-actions-without-persistence.md)) |
+| Item | Issue | Why it waits |
+|---|---|---|
+| Tabular figures in the `heading/metric` text style | [#5](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/5) | Must be enabled in Figma first, then added to the text style class |
+| `color/action/secondary/bg-pressed` token for the Button pressed state | [#14](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/14) | Missing in Figma |
+| `app/favicon.ico` is still the Next.js default | [#16](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/16) | Needs the Gurises Unidos mark; replace it before the first deploy |
+| Dark mode | [#11](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/11) | Figma Starter allows one mode per collection; it will be built in code by redefining the semantic colors |
+| No backend, no login | — | Out of scope for v1 ([ADR 0005](adr/0005-fictitious-data-no-backend.md)). Actions like "Nuevo proyecto" are built but don't save ([ADR 0006](adr/0006-backend-actions-without-persistence.md)) |

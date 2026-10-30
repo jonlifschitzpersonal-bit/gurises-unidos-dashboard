@@ -1,0 +1,32 @@
+name: Bug
+description: Something doesn't work or doesn't match Figma.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you see, with a screenshot if it's visual.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen
+      description: The expected behavior. Link the Figma node or the doc that says so.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Page, viewport width and browser.
+      placeholder: /, 375px, Chrome

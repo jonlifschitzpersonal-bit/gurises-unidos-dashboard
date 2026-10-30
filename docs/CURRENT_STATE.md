@@ -12,6 +12,7 @@
 | Font and metadata | Inter via `next/font`, `lang="es"`, title and description | Served HTML checked |
 | `/tokens` | Every token with its Tailwind class | No horizontal scroll at 320px |
 | `/` | Placeholder page with a link to `/tokens` | — |
+| Git workflow | Backlog in GitHub Issues with 3 milestones; PR and issue templates; `main` protected by a ruleset (PR required, squash only, no force push or deletion); branches deleted on merge | Ruleset "Protect main" active; first PR closed #1 |
 
 ## Not built yet
 

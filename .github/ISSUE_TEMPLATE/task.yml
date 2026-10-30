@@ -1,0 +1,35 @@
+name: Task
+description: A feature, a slice, a component, design work or debt to pay.
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What and why
+      description: The observable result and why it's needed.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: Checks that prove it's finished. Each one should be verifiable.
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Out of scope
+      description: What this issue does not cover, so it doesn't grow.
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: Where this comes from. Link the Figma comment or node, the ADR, the conversation or the PR.
+      placeholder: https://www.figma.com/design/E8QHJIEO0sSdSqPPDCjNQd/...?node-id=...
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Blocked by
+      description: Other issues that must close first, as "#N".
