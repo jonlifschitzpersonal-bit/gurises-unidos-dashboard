@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Tokens · AI Visibility",
+  title: "Tokens · Gurises Unidos",
 };
 
 // Each row: the Figma variable, the Tailwind class that uses it, and how to

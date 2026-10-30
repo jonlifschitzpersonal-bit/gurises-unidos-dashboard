@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Visibility",
+  title: "Gurises Unidos · Dashboard",
   description:
-    "Cómo aparece tu marca en las respuestas de ChatGPT, Gemini, Perplexity y Claude.",
+    "Alcance y resultados de los proyectos de Gurises Unidos, para informar a donantes.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
