@@ -13,7 +13,7 @@ To report to donors, leadership had to go through file after file to build the p
 | User | Needs |
 |---|---|
 | **NGO leadership** (primary) | A global view of projects, beneficiaries and results for a period, to prepare donor reports. |
-| Project staff (future) | Load and update their project data. Out of scope for v1 ([ADR 0005](adr/0005-fictitious-data-no-backend.md)). |
+| Project staff (future) | Load and update their project data. The flows exist in v1 but don't save ([ADR 0005](adr/0005-fictitious-data-no-backend.md), [ADR 0006](adr/0006-backend-actions-without-persistence.md)). |
 
 ## What the dashboard shows
 
@@ -23,7 +23,7 @@ To report to donors, leadership had to go through file after file to build the p
 - **Reach indicator** (full row): children and teenagers reached. It is the headline number. It measures **reach, not impact**, and the UI must not suggest otherwise.
 - **Secondary indicators** (three cards), each with its change vs. the previous year (for example "+4,0 % vs. año anterior"): families reached, teachers trained, active projects.
 - **Projects table:** each project with its status, intensity and number of beneficiaries.
-- **Actions:** "Cargar métricas" and "Nuevo proyecto". Their behavior in v1 is a pending decision ([`PENDING_TASKS.md`](PENDING_TASKS.md)).
+- **Actions:** "Cargar métricas" and "Nuevo proyecto". Built as complete flows (form, validation, states); confirming saves nothing in v1 ([ADR 0006](adr/0006-backend-actions-without-persistence.md)).
 - **Navigation:** a sidebar and tabs ("Proyectos", "Métricas", "Beneficiarios").
 
 **Filters**

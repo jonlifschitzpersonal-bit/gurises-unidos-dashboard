@@ -17,6 +17,7 @@ An ADR records one decision that shapes the project: the context, the options co
 | [0003](0003-figma-console-mcp.md) | Figma Console MCP to read and write Figma | Accepted |
 | [0004](0004-own-repository.md) | The project lives in its own repository | Accepted |
 | [0005](0005-fictitious-data-no-backend.md) | Fictitious data and no backend in v1 | Accepted |
+| [0006](0006-backend-actions-without-persistence.md) | Backend actions are fully built, without persistence | Accepted |
 
 ## Template
 
