@@ -29,6 +29,7 @@ None
 - [ ] `npm run lint` passes
 - [ ] `npm run build` passes
 - [ ] Screenshots or recordings of the changed UI (desktop and mobile), if any
+- [ ] UI slices: Impeccable `critique` and `audit` run; high-priority findings fixed or filed as issues
 
 **Verification ledger**
 

@@ -52,7 +52,7 @@ All tokens live in `app/globals.css`. Rules ([ADR 0002](docs/adr/0002-design-tok
 
 ## Conventions
 
-- **UI copy is in Spanish (Uruguay)** and `lang="es"`. Code, docs, commits and PRs are in English.
+- **UI copy is in Spanish (Uruguay), with voseo** ("Elegí un año"; buttons in the infinitive), and `lang="es"`. Voice and brand: `docs/PROJECT_CONTEXT.md`. Code, docs, commits and PRs are in English.
 - **Component and prop names match Figma:** layer and component names become component names; Figma properties become props with the same names and values.
 - **Semantic HTML:** `<button>` for actions, `<a>`/`next/link` to navigate, never a clickable `<div>`. Visible focus on every interactive element.
 - **Every data view has its states:** loading, error, retry, empty and empty by filter (see `docs/PROJECT_CONTEXT.md`).
@@ -84,6 +84,15 @@ Work goes in **slices**: a small piece of the product with an observable result 
 6. **Close the slice:** update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md` in the same PR, and add an ADR in `docs/adr/` for a new architecture decision. A slice is not closed with a FAIL, or with a check its issue requires left UNVERIFIED.
 7. **Stop.** Don't start the next slice until this PR is merged and the next one is asked for.
 8. If you assume something, say it and name the risk.
+
+## Design review (Impeccable)
+
+[Impeccable](https://impeccable.style/docs) reviews the design on top of the Figma ledger: the ledger checks that the code matches Figma; Impeccable checks that the design holds up.
+
+- **`PRODUCT.md` and `DESIGN.md` are derived, not sources of truth.** `PRODUCT.md` comes from `docs/PROJECT_CONTEXT.md` and the ADRs; `DESIGN.md` (and `.impeccable/design.json`) from the Figma variables and components and `app/globals.css`. When those change, regenerate them (`/impeccable init`, `/impeccable document`) and run `/impeccable doctor`. If they disagree, the sources win.
+- **The design hook is on** (`.impeccable/config.json`): it checks every UI edit and, at the end of a turn, the files touched. Triage each finding: fix real problems; an ignore needs evidence and is disclosed in the PR.
+- **At the close of every UI slice, run `critique` and `audit`.** Fix each high-priority finding in the slice or file it as an issue.
+- **It can improve the system, not skip it.** A color, size or type style that doesn't exist becomes a token, in Figma first. Product calls (what is shown, what a text says) are proposed and Jonathan decides. Any command that changes something is worked as a slice.
 
 ## Git workflow
 

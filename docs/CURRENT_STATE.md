@@ -14,6 +14,7 @@
 | `/` | Placeholder page with a link to `/tokens` | — |
 | Fictitious data notice | `DemoNotice` in the root layout, on every screen: closes with the X and stays closed in that browser (`localStorage`); an inline script hides it before the first paint ([#20](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/20)) | Measured in Chrome against the Figma `DemoNotice` at 1280 and 320px; keyboard, focus, accessibility tree, reload, client navigation, blocked storage and the dev console checked (ledger in the PR) |
 | Git workflow | Backlog in GitHub Issues with 3 milestones; PR and issue templates; `main` protected by a ruleset (PR required, squash only, no force push or deletion); branches deleted on merge | Ruleset "Protect main" active; first PR closed #1 |
+| Design review (Impeccable 4.8.0) | `PRODUCT.md` and `DESIGN.md` (+ `.impeccable/design.json`) derived from the docs, Figma and `globals.css`; the design hook on for this project ([#27](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/27)) | `impeccable doctor`: no drift. A test file with gradient text, written by the agent, got a `gradient-text` finding from the hook; deleted after |
 
 ## Not built yet
 
