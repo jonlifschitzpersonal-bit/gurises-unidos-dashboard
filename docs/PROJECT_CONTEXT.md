@@ -34,6 +34,8 @@ To report to donors, leadership had to go through file after file to build the p
 - **Actions:** "Cargar métricas" and "Nuevo proyecto". Built as complete flows (form, validation, states); confirming saves nothing in v1 ([ADR 0006](adr/0006-backend-actions-without-persistence.md)).
 - **Navigation:** a sidebar and tabs ("Proyectos", "Métricas", "Beneficiarios").
 
+**Not in the public demo:** `/tokens`, the design token reference, is a tool for building the dashboard. It works in development only; the portfolio shows the token reference in the published Storybook instead (Jonathan's call, 2026-10-30, [#35](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/35)).
+
 **Filters**
 
 | Filter | Scope |
