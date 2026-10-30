@@ -571,6 +571,7 @@
       "action": {
         "disabled": {
           "bg": {
+            "$description": "Fondo de una acción deshabilitada. No como borde decorativo.",
             "$extensions": {
               "figma-console-mcp": {
                 "codeSyntax": {
@@ -597,6 +598,7 @@
         },
         "primary": {
           "bg": {
+            "$description": "Fondo del botón principal. Solo acciones.",
             "$extensions": {
               "figma-console-mcp": {
                 "codeSyntax": {
@@ -645,6 +647,7 @@
         },
         "secondary": {
           "border": {
+            "$description": "Borde del botón secundario. Solo acciones.",
             "$extensions": {
               "figma-console-mcp": {
                 "codeSyntax": {
@@ -668,6 +671,7 @@
             "$value": "{primitives.blue.200}"
           },
           "text": {
+            "$description": "Texto e ícono del botón secundario. Solo acciones.",
             "$extensions": {
               "figma-console-mcp": {
                 "codeSyntax": {
@@ -695,6 +699,7 @@
         },
         "subtle": {
           "bg-hover": {
+            "$description": "Fondo al pasar el mouse sobre una acción sutil (botón sin borde, fila). No para superficies fijas.",
             "$extensions": {
               "figma-console-mcp": {
                 "codeSyntax": {
@@ -721,6 +726,7 @@
       },
       "bg": {
         "accent-subtle": {
+          "$description": "Fondo de una superficie destacada, como un aviso. Siempre con borde border/accent.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {
@@ -745,6 +751,7 @@
           "$value": "{primitives.blue.50}"
         },
         "skeleton": {
+          "$description": "Bloques de carga (skeleton). Solo mientras carga.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {
@@ -819,6 +826,7 @@
           "$value": "{primitives.blue.200}"
         },
         "default": {
+          "$description": "Borde de tarjetas, tablas y separadores.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {
@@ -893,6 +901,7 @@
           "$value": "{primitives.red.50}"
         },
         "neutral": {
+          "$description": "Estado o variación neutra, sin cambio (badge, indicador). No para texto común.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {
@@ -918,6 +927,7 @@
           "$value": "{primitives.gray.600}"
         },
         "neutral-subtle": {
+          "$description": "Fondo de un estado neutro (badge). No para cargas.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {
@@ -1019,6 +1029,7 @@
       },
       "icon": {
         "accent": {
+          "$description": "Ícono sobre una superficie destacada (el aviso). No para texto.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {
@@ -1070,6 +1081,7 @@
           "$value": "{primitives.gray.900}"
         },
         "disabled": {
+          "$description": "Solo para el texto de un control deshabilitado: contraste de 2,54:1, no alcanza para texto que hay que leer.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {
@@ -1095,6 +1107,7 @@
           "$value": "{primitives.gray.400}"
         },
         "muted": {
+          "$description": "Texto secundario: etiquetas, ayudas, metadatos. No para texto deshabilitado.",
           "$extensions": {
             "figma-console-mcp": {
               "codeSyntax": {

@@ -43,7 +43,9 @@ npm run dev      # http://localhost:3000
 app/
 ├── layout.tsx        # wraps every page: font (Inter), language, metadata
 ├── page.tsx          # home ( / )
-├── tokens/page.tsx   # every design token with its Tailwind class ( /tokens )
+├── tokens/           # /tokens: every token with its class, value and usage note
+│   ├── page.tsx
+│   └── tokens.ts     # GENERATED list of tokens, from tokens/figma/
 ├── globals.css       # Tailwind, imports tokens.css, base styles
 └── tokens.css        # GENERATED design tokens (@theme), from tokens/figma/
 docs/

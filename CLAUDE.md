@@ -30,7 +30,7 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4. No `src/` fol
 | Where | What goes there |
 |---|---|
 | `app/` | Routes (`page.tsx`), the root `layout.tsx`, `globals.css` and the generated `tokens.css` |
-| `app/tokens/` | Page that shows every design token with its class (`/tokens`) |
+| `app/tokens/` | Page that shows every design token with its class, value and usage note (`/tokens`). It reads `tokens.ts`, generated from Figma |
 | `components/` | System components (created in the component phase) |
 | `tokens/figma/` | The Figma export (DTCG JSON) the token CSS is built from. Never edited by hand |
 | `scripts/tokens/` | The token build (Style Dictionary) and the Figma script that exports the text styles |
@@ -43,14 +43,16 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4. No `src/` fol
 
 ## Design tokens
 
-Tokens are **generated from Figma**, never written by hand ([ADR 0007](docs/adr/0007-tokens-generated-from-figma.md)): `tokens/figma/*.tokens.json` (the export) → `npm run tokens` (Style Dictionary) → `app/tokens.css`, which `app/globals.css` imports. `npm run lint` fails if `app/tokens.css` doesn't match the export.
+Tokens are **generated from Figma**, never written by hand ([ADR 0007](docs/adr/0007-tokens-generated-from-figma.md)): `tokens/figma/*.tokens.json` (the export) → `npm run tokens` (Style Dictionary) → `app/tokens.css`, which `app/globals.css` imports, and `app/tokens/tokens.ts`, the list the `/tokens` page shows. `npm run lint` fails if either doesn't match the export.
+
+**Usage notes live in Figma**, in each variable's description (when to use it and when not). They are exported with the variables and shown on `/tokens`. Read them before choosing between two tokens with the same value.
 
 **To change or add a token:**
 1. Change it in Figma first (semantic colors point to a primitive; set the WEB code syntax to `var(--<name with dashes>)`).
 2. Export the variables with Figma Console MCP: `figma_export_tokens` with `format: "dtcg"`, `sizeUnit: "px"` and `outputPath` set to `tokens/figma/variables.tokens.json`.
 3. If text styles changed, run `scripts/tokens/export-text-styles.figma.js` with `figma_execute` and save the result as `tokens/figma/text-styles.tokens.json`.
 4. Run `npm run tokens`. If it stops, Figma and code don't map 1 to 1: read the error and fix it in Figma, or extend `scripts/tokens/build.mjs` for a new kind of token.
-5. Review the diff of the JSON and of `app/tokens.css`: it should show only the change you made.
+5. Review the diff of the JSON, `app/tokens.css` and `app/tokens/tokens.ts`: it should show only the change you made.
 
 Rules ([ADR 0002](docs/adr/0002-design-tokens-in-tailwind-theme.md)):
 
