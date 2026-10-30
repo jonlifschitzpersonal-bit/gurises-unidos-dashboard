@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect } from "react";
+import { Icon } from "@/components/Icon";
 
 // Figma: DemoNotice (02 - Components). Fixed copy, not a prop.
 const STORAGE_KEY = "demo-notice";
@@ -54,45 +55,24 @@ export function DemoNotice({ focusTargetId }: DemoNoticeProps) {
         className="flex items-start gap-2 border-b border-border-accent bg-bg-accent-subtle py-1 pr-2 pl-4 demo-dismissed:hidden"
       >
         {/* mt-2 aligns the icon with the first line of text (iconSlot in Figma). */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="mt-2 size-4 shrink-0 text-icon-accent"
-        >
-          {/* Lucide "info". Moves to the Icon component when it exists (#12). */}
-          <circle cx="12" cy="12" r="10" vectorEffect="non-scaling-stroke" />
-          <path d="M12 16v-4" vectorEffect="non-scaling-stroke" />
-          <path d="M12 8h.01" vectorEffect="non-scaling-stroke" />
-        </svg>
+        <Icon name="info" className="mt-2 text-icon-accent" />
         <p className="min-w-0 flex-1 py-1.5 text-body-sm text-text-default">
           Demo con datos ficticios: no son cifras reales de Gurises Unidos y lo
           que cargues no se guarda.
         </p>
+        {/*
+          Internal, not a Button: it's the only icon-only button so far, and
+          its hover changes the icon color while Button ghost fills the
+          background. It moves to Button when a second one appears (Figma
+          DemoNotice description).
+        */}
         <button
           type="button"
           aria-label="Cerrar aviso"
           onClick={dismiss}
           className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-sm text-text-muted hover:text-text-default focus-visible:text-text-default focus-visible:outline-2 focus-visible:outline-focus-ring"
         >
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.5}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="size-4"
-          >
-            {/* Lucide "x". Moves to the Icon component when it exists (#12). */}
-            <path d="M18 6 6 18" vectorEffect="non-scaling-stroke" />
-            <path d="m6 6 12 12" vectorEffect="non-scaling-stroke" />
-          </svg>
+          <Icon name="x" />
         </button>
       </section>
     </>

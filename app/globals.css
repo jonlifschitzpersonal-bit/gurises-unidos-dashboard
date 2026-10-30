@@ -28,4 +28,12 @@
     background-color: var(--color-bg-surface);
     color: var(--color-text-default);
   }
+
+  /*
+    Icons keep Figma's 1.5px stroke at any size (components/Icon.tsx).
+    Without this, the stroke scales with the icon: thinner when it's smaller.
+  */
+  [data-slot="icon"] * {
+    vector-effect: non-scaling-stroke;
+  }
 }

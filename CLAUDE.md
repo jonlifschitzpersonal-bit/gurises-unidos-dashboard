@@ -31,7 +31,8 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4. No `src/` fol
 |---|---|
 | `app/` | Routes (`page.tsx`), the root `layout.tsx`, `globals.css` and the generated `tokens.css` |
 | `app/tokens/` | Page that shows every design token with its class, value and usage note (`/tokens`). It reads `tokens.ts`, generated from Figma |
-| `components/` | System components (created in the component phase) |
+| `components/` | System components, one per Figma component, with variants in `cva` ([ADR 0008](docs/adr/0008-component-variants-cva-lucide.md)) |
+| `lib/` | Shared helpers: `cn()` joins classes and resolves conflicts, aware of the generated text styles |
 | `tokens/figma/` | The Figma export (DTCG JSON) the token CSS is built from. Never edited by hand |
 | `scripts/tokens/` | The token build (Style Dictionary) and the Figma script that exports the text styles |
 

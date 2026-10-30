@@ -28,6 +28,11 @@
           "#eef6ff"
         ]
       },
+      "action-primary-bg-pressed": {
+        "role": "primary",
+        "displayName": "Deep Sky",
+        "canonical": "#70b8ff"
+      },
       "icon-accent": {
         "role": "primary",
         "displayName": "Harbor Navy",
@@ -69,6 +74,11 @@
         "role": "neutral",
         "displayName": "Mist Blue",
         "canonical": "#eef6ff"
+      },
+      "action-subtle-bg-pressed": {
+        "role": "neutral",
+        "displayName": "Pale Sky",
+        "canonical": "#cbe6ff"
       },
       "text-default": {
         "role": "neutral",

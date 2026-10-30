@@ -13,9 +13,11 @@ colors:
   border-accent: "#a8d6ff"
   action-primary-bg: "#a8d6ff"
   action-primary-bg-hover: "#8cc7ff"
+  action-primary-bg-pressed: "#70b8ff"
   action-secondary-border: "#a8d6ff"
   action-secondary-text: "#0b3f6e"
   action-subtle-bg-hover: "#eef6ff"
+  action-subtle-bg-pressed: "#cbe6ff"
   action-disabled-bg: "#e5e7eb"
   focus-ring: "#2b7fd4"
   feedback-positive: "#15803d"
@@ -81,6 +83,8 @@ components:
     height: "40px"
   button-primary-hover:
     backgroundColor: "{colors.action-primary-bg-hover}"
+  button-primary-pressed:
+    backgroundColor: "{colors.action-primary-bg-pressed}"
   button-primary-disabled:
     backgroundColor: "{colors.action-disabled-bg}"
     textColor: "{colors.text-disabled}"
@@ -92,6 +96,8 @@ components:
     height: "40px"
   button-secondary-hover:
     backgroundColor: "{colors.action-subtle-bg-hover}"
+  button-secondary-pressed:
+    backgroundColor: "{colors.action-subtle-bg-pressed}"
   button-ghost:
     textColor: "{colors.text-default}"
     typography: "{typography.label-md}"
@@ -100,6 +106,8 @@ components:
     height: "40px"
   button-ghost-hover:
     backgroundColor: "{colors.action-subtle-bg-hover}"
+  button-ghost-pressed:
+    backgroundColor: "{colors.action-subtle-bg-pressed}"
   button-sm:
     padding: "6px 12px"
     height: "32px"
@@ -230,6 +238,7 @@ Specs come from the Figma components. Which ones are built in code is in `docs/C
 - **Ghost:** transparent, Ink label, no border.
 - **Small size:** 6px × 12px padding, 32px tall.
 - **Hover:** primary goes to Brighter Sky; secondary and ghost fill with Mist Blue.
+- **Pressed** (`:active`, one step darker than hover; no variant in Figma, it is annotated): primary goes to Deep Sky (`action-primary-bg-pressed`); secondary and ghost fill with Pale Sky (`action-subtle-bg-pressed`).
 - **Focus:** a 2px Signal Blue ring outside the button, on keyboard focus only.
 - **Disabled:** Disabled Gray fill (primary) or border (secondary), Ash label.
 - **Loading:** a 16px spinner takes the icon's place; the label stays.
