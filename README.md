@@ -4,7 +4,7 @@ A dashboard for the leadership of Gurises Unidos, a Uruguayan NGO that works wit
 
 It is built from a Figma file prepared for agents ("AI-ready"), with a design system whose tokens and components map one to one between Figma and code. **The data is fictitious.**
 
-> **Status: in progress.** The project is scaffolded and the design tokens are in place. Next: system components and the dashboard slices. See [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md).
+> **Status: in progress.** The project is scaffolded, the design tokens are in place and the backlog is in GitHub Issues. Next: system components and the dashboard slices. See [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md).
 
 ## What it does
 
@@ -38,6 +38,7 @@ npm run dev      # http://localhost:3000
 ## Project structure
 
 ```
+.github/                 # pull request and issue templates
 app/
 ├── layout.tsx        # wraps every page: font (Inter), language, metadata
 ├── page.tsx          # home ( / )
@@ -51,6 +52,12 @@ docs/
 └── research/            # the context behind each decision
 CLAUDE.md                # rules for coding agents
 ```
+
+## How we work
+
+- **Backlog:** every task is a [GitHub issue](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues), grouped by milestone; the order of work is in [`docs/PENDING_TASKS.md`](docs/PENDING_TASKS.md).
+- **Changes:** issue → branch → pull request with `Closes #N` → review → squash merge. `main` only accepts pull requests. The full workflow is in [`CLAUDE.md`](CLAUDE.md#git-workflow).
+- **Evidence:** every pull request follows the [template](.github/pull_request_template.md): scope, differences with Figma, checks and a verification ledger.
 
 ## Design tokens
 
@@ -66,6 +73,7 @@ The Tailwind theme only contains the tokens from Figma, with the same names (sla
 - [x] Scaffold the Next.js + Tailwind project
 - [x] Load the Figma tokens into the Tailwind theme
 - [x] Agent-ready docs (`CLAUDE.md`, context, state, decisions)
+- [x] Team workflow: issue backlog, pull request templates, protected `main`
 - [ ] System components with variants, accessibility and Storybook
 - [ ] Design the Gurises Unidos screens in Figma
 - [ ] Dashboard slices: app shell, indicators, projects table, filters and states

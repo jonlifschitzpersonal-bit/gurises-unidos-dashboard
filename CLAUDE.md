@@ -5,6 +5,7 @@
 Dashboard for the leadership of Gurises Unidos, a Uruguayan NGO, to see the reach and results of its social projects and prepare reports for donors. Product, users and sources of truth: [`docs/PROJECT_CONTEXT.md`](docs/PROJECT_CONTEXT.md).
 
 **Before starting a task, read:**
+- The issue you are working on (`gh issue view <N>`): its "done when", source and blockers.
 - [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md): what is built and verified today.
 - [`docs/PENDING_TASKS.md`](docs/PENDING_TASKS.md): what comes next, blockers and known debt.
 - [`docs/adr/`](docs/adr/README.md): decisions already made. Don't reopen one without saying so; propose a new ADR that supersedes it.
