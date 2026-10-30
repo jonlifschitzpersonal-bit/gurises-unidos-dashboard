@@ -25,7 +25,9 @@ export function DemoNotice({ focusTargetId }: DemoNoticeProps) {
   useLayoutEffect(() => {
     try {
       if (localStorage.getItem(STORAGE_KEY) === DISMISSED) markDismissed();
-    } catch {}
+    } catch {
+      // Storage blocked: the notice shows, which is the safe default.
+    }
   }, []);
 
   function dismiss() {
@@ -46,9 +48,10 @@ export function DemoNotice({ focusTargetId }: DemoNoticeProps) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: hideIfDismissed }}
       />
-      <aside
-        aria-label="Aviso"
-        className="flex items-start gap-2 bg-bg-accent-subtle py-1 pr-2 pl-4 demo-dismissed:hidden"
+      {/* A named region, not an alert: read in order, without interrupting. */}
+      <section
+        aria-label="Aviso de datos ficticios"
+        className="flex items-start gap-2 border-b border-border-accent bg-bg-accent-subtle py-1 pr-2 pl-4 demo-dismissed:hidden"
       >
         {/* mt-2 aligns the icon with the first line of text (iconSlot in Figma). */}
         <svg
@@ -67,7 +70,8 @@ export function DemoNotice({ focusTargetId }: DemoNoticeProps) {
           <path d="M12 8h.01" vectorEffect="non-scaling-stroke" />
         </svg>
         <p className="min-w-0 flex-1 py-1.5 text-body-sm text-text-default">
-          Demo con datos ficticios. No son cifras reales de Gurises Unidos.
+          Demo con datos ficticios: no son cifras reales de Gurises Unidos y lo
+          que cargues no se guarda.
         </p>
         <button
           type="button"
@@ -90,7 +94,7 @@ export function DemoNotice({ focusTargetId }: DemoNoticeProps) {
             <path d="m6 6 12 12" vectorEffect="non-scaling-stroke" />
           </svg>
         </button>
-      </aside>
+      </section>
     </>
   );
 }

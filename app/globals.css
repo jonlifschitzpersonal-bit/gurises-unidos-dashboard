@@ -42,6 +42,7 @@
 
   --color-icon-accent: var(--blue-900);
   --color-border-default: var(--gray-200);
+  --color-border-accent: var(--blue-200);
 
   --color-action-primary-bg: var(--blue-200);
   --color-action-primary-bg-hover: var(--blue-300);

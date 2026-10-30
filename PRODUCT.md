@@ -41,7 +41,7 @@ Built around one organization's reporting cycle, not a generic analytics tool. T
 - **Filters:** year and department are global (indicators and table); search is local (table only). Known trade-off: with an active search, the indicators show the total and the table only the matches, and the UI has to make that clear.
 - **Six designed states:** populated, loading (skeletons the size of the content), error ("No pudimos cargar los datos" + "Reintentar"), retry (the message stays, the button loads, no full-screen skeleton), empty initial ("Aún no hay datos cargados", no button) and empty by filter (different copy).
 - **Actions:** "Cargar métricas" and "Nuevo proyecto" are complete flows (form, validation, states); confirming saves nothing (ADR 0006).
-- **Data:** fictitious, with a realistic structure. No backend and no login in v1 (ADR 0005). The public demo must say the data is fictitious; the `DemoNotice` does it on every screen.
+- **Data:** fictitious, with a realistic structure. No backend and no login in v1 (ADR 0005). The public demo must say the data is fictitious and that loading saves nothing; the `DemoNotice` does it on every screen, and once the top bar exists a fixed "Datos ficticios" marker stays in it.
 - **Design system:** tokens and components map one to one between Figma and code. A visual change that needs a new value becomes a token, in Figma first (see DESIGN.md).
 - **Undecided:** the fictitious data set (how many projects and years, names and statuses), issue #6.
 
