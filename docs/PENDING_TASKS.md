@@ -8,15 +8,14 @@
 
 | # | Task | Milestone | Notes |
 |---|---|---|---|
-| 1 | [#13](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/13) `StatusBadge`, [#4](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/4) `MetricCard` | System components | Variants with `cva`. `Icon` (#12) and `Button` (#3) are built: their issues close with their stories (6.4). The Figma `MetricCard` default title ("Menciones en ChatGPT") comes from another project: use a Gurises Unidos one |
-| 2 | [#37](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/37) Button accessibility: forced colors, loading announcement, keyboard | System components | Class 6.3, with the accessibility pass of every component |
-| 3 | [#2](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/2) Storybook | System components | Stories for every variant and state close #12, #3, #13 and #4 |
-| 4 | [#35](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/35) Token reference in Storybook, `/tokens` dev-only | System components | Right after Storybook. Blocks the first deploy (#8): `/tokens` is not part of the public demo |
-| 5 | [#7](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/7) Design the screens in Figma | Dashboard v1 | Desktop, mobile and the 6 states; new components `Tabs`, `Sidebar`, table, selectors, search; the "Datos ficticios" marker in the top bar (#30) |
-| 6 | [#15](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/15) Slice 1: app shell, with [#30](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/30) the fixed "Datos ficticios" marker | Dashboard v1 | Blocked by #7 |
-| 7 | [#8](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/8) Slice 2: indicators + preview deploy | Dashboard v1 | Blocked by #4, #6, #15 and [#35](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/35). Before the deploy: [#16](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/16) favicon |
-| 8 | [#17](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/17) Slice 3: projects table, [#18](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/18) Slice 4: filters, search and states | Dashboard v1 | |
-| 9 | [#9](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/9) "Cargar métricas", [#10](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/10) "Nuevo proyecto" | Dashboard v1 | Built complete; confirming saves nothing ([ADR 0006](adr/0006-backend-actions-without-persistence.md)) |
+| 1 | [#37](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/37) Button accessibility: forced colors, loading announcement, keyboard | System components | Class 6.3, with the accessibility pass of every component |
+| 2 | [#2](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/2) Storybook | System components | `Icon` (#12), `Button` (#3), `StatusBadge` (#13) and `MetricCard` (#4) are built: their issues close with their stories |
+| 3 | [#35](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/35) Token reference in Storybook, `/tokens` dev-only | System components | Right after Storybook. Blocks the first deploy (#8): `/tokens` is not part of the public demo |
+| 4 | [#7](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/7) Design the screens in Figma | Dashboard v1 | Desktop, mobile and the 6 states; new components `Tabs`, `Sidebar`, table, selectors, search; the "Datos ficticios" marker in the top bar (#30) |
+| 5 | [#15](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/15) Slice 1: app shell, with [#30](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/30) the fixed "Datos ficticios" marker | Dashboard v1 | Blocked by #7 |
+| 6 | [#8](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/8) Slice 2: indicators + preview deploy | Dashboard v1 | Blocked by #38 (MetricCard decisions), #6, #15 and [#35](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/35). Before the deploy: [#16](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/16) favicon |
+| 7 | [#17](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/17) Slice 3: projects table, [#18](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/18) Slice 4: filters, search and states | Dashboard v1 | |
+| 8 | [#9](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/9) "Cargar métricas", [#10](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/10) "Nuevo proyecto" | Dashboard v1 | Built complete; confirming saves nothing ([ADR 0006](adr/0006-backend-actions-without-persistence.md)) |
 
 ## Product decisions pending
 
@@ -24,6 +23,7 @@
 |---|---|
 | Fictitious data set: how many projects and years, names and statuses | [#6](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/6) |
 | Button: contrast between variants, hover on tinted surfaces, 44px in mobile forms (from the 6.2 critique) | [#36](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/36) |
+| MetricCard: visible comparison base, neutral glyph, percent format, error and no-data copy, retry place, title while loading, long values, row alignment (from the 6.2 critique) | [#38](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/38) |
 
 ## Known debt
 
