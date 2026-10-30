@@ -20,6 +20,7 @@ To report to donors, leadership had to go through file after file to build the p
 ## Voice and brand
 
 - **UI copy is Spanish (Uruguay), with voseo.** Instructions use *vos*: "Elegí un año", "Probá de nuevo". Buttons use the infinitive: "Cargar métricas", "Reintentar". Messages speak as the organization, in the first person plural: "No pudimos cargar los datos".
+- **Demo notice (fixed copy):** "Demo con datos ficticios: no son cifras reales de Gurises Unidos y lo que cargues no se guarda." It covers the data and the actions that don't save ([ADR 0006](adr/0006-backend-actions-without-persistence.md)). The band can be closed; once the top bar exists, a small "Datos ficticios" marker stays there and can't be closed.
 - **No brand assets yet.** The name "Gurises Unidos" appears as text only. There is no logo or color palette of the organization in the project, and none is invented; the favicon waits for a real file ([#16](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/16)). The colors are the design system's.
 
 ## What the dashboard shows

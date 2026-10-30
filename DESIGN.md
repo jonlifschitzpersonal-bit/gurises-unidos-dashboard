@@ -10,6 +10,7 @@ colors:
   text-disabled: "#9ca3af"
   icon-accent: "#0b3f6e"
   border-default: "#e5e7eb"
+  border-accent: "#a8d6ff"
   action-primary-bg: "#a8d6ff"
   action-primary-bg-hover: "#8cc7ff"
   action-secondary-border: "#a8d6ff"
@@ -60,6 +61,7 @@ rounded:
   lg: "12px"
   full: "9999px"
 spacing:
+  "0-5": "2px"
   "1": "4px"
   "1-5": "6px"
   "2": "8px"
@@ -167,6 +169,7 @@ A near-monochrome gray system with one soft blue and two feedback hues, all from
 - **Slate** (`text-muted`): secondary text and metric titles, 7.56:1 on white.
 - **Ash** (`text-disabled`): disabled labels only.
 - **Hairline Gray** (`border-default`): card borders and dividers.
+- **Sky Edge** (`border-accent`): the edge of a Mist Blue surface, so it doesn't dissolve into white (the demo notice's bottom border). Same value as Soft Sky, but not an action color.
 - **Fog** (`bg-skeleton`, `feedback-neutral-subtle`): loading skeletons and the paused badge.
 - **Disabled Gray** (`action-disabled-bg`): disabled button fill and border.
 
@@ -244,9 +247,9 @@ Specs come from the Figma components. Which ones are built in code is in `docs/C
 - **Status:** `active` green ("Activo"), `paused` gray ("Pausado"), `error` red ("Error"). The label is fixed per status, so color and text never contradict. Not clickable.
 
 ### Demo notice (signature)
-- **Style:** a full-width Mist Blue band, first on every screen: a Harbor Navy info icon, the fixed message in Ink (`body-sm`) and a 32px close button with a Slate X that turns Ink on hover and focus.
+- **Style:** a full-width Mist Blue band with a 1px Sky Edge bottom border (included in its height: 41px), first on every screen: a Harbor Navy info icon, the fixed message in Ink (`body-sm`) and a 32px close button with a Slate X that turns Ink on hover and focus.
 - **Alignment:** the icon and the X stay aligned with the first line when the message wraps.
-- **Behavior:** once closed, it stays closed in that browser.
+- **Behavior:** once closed, it stays closed in that browser. When the top bar exists, a small fixed "Datos ficticios" marker stays in it and can't be closed.
 
 ## Do's and Don'ts
 

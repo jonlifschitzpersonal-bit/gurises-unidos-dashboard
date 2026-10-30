@@ -18,6 +18,7 @@ const colors: { token: string; utility: string; sample: Sample }[] = [
   { token: "color/text/disabled", utility: "text-text-disabled", sample: "text" },
   { token: "color/icon/accent", utility: "text-icon-accent", sample: "text" },
   { token: "color/border/default", utility: "border-border-default", sample: "border" },
+  { token: "color/border/accent", utility: "border-border-accent", sample: "border" },
   { token: "color/action/primary/bg", utility: "bg-action-primary-bg", sample: "fill" },
   { token: "color/action/primary/bg-hover", utility: "bg-action-primary-bg-hover", sample: "fill" },
   { token: "color/action/secondary/border", utility: "border-action-secondary-border", sample: "border" },
@@ -113,10 +114,10 @@ export default function TokensPage() {
         ))}
       </Group>
 
-      <Group title="Text styles">
+      <Group title="Estilos de texto">
         {textStyles.map(({ token, utility, spec }) => (
           <li key={token} className="flex flex-col gap-1 p-3">
-            <span className={utility}>Visibilidad en IA 1.284</span>
+            <span className={utility}>Niñas, niños y adolescentes alcanzados 1.284</span>
             <span className="text-label-xs text-text-muted">
               <code>{utility}</code> · {token} · {spec}
             </span>
@@ -124,7 +125,7 @@ export default function TokensPage() {
         ))}
       </Group>
 
-      <Group title="Radius">
+      <Group title="Radios">
         {radii.map(({ token, utility, px }) => (
           <li key={token} className="flex items-center justify-between gap-4 p-3">
             <TokenName utility={utility} token={`${token} · ${px}px`} />
@@ -136,7 +137,7 @@ export default function TokensPage() {
         ))}
       </Group>
 
-      <Group title="Spacing">
+      <Group title="Espaciado">
         {spacing.map(({ token, width, px }) => (
           <li key={token} className="flex items-center justify-between gap-4 p-3">
             <TokenName utility={width.replace("w-", "p-")} token={`${token} · ${px}px`} />

@@ -60,7 +60,9 @@ All tokens live in `app/globals.css`. Rules ([ADR 0002](docs/adr/0002-design-tok
 
 ## How to work
 
-Work goes in **slices**: a small piece of the product with an observable result and a "done when". One slice = one issue = one branch = one PR. Small, because a short diff can be reviewed in full.
+Work goes in **slices**: a small piece of the product with an observable result and a "done when". One slice = one issue, with one or more commits. Small, because a short diff can be reviewed in full.
+
+**One PR per working session, not per slice.** Everything done in a session (its slices, what comes up along the way and the closing docs) goes in one branch and one PR, merged once at the end. Reviewing by commit keeps each slice readable inside it.
 
 1. **Read first:** the issue, the state docs, the exact Figma node (with its description and annotations) and the existing components and tokens.
 2. **Plan before code, and wait for approval.** The plan answers:
@@ -82,7 +84,7 @@ Work goes in **slices**: a small piece of the product with an observable result 
 4. Run `npm run lint` and `npm run build`.
 5. **Verify with evidence:** measure in the browser against Figma and report each check as PASS, FAIL, UNVERIFIED or OUT OF SCOPE. What wasn't tested is UNVERIFIED, never PASS.
 6. **Close the slice:** update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md` in the same PR, and add an ADR in `docs/adr/` for a new architecture decision. A slice is not closed with a FAIL, or with a check its issue requires left UNVERIFIED.
-7. **Stop.** Don't start the next slice until this PR is merged and the next one is asked for.
+7. **Stop.** Don't start the next slice until it is asked for. Open the session's PR at the end, when Jonathan closes the session.
 8. If you assume something, say it and name the risk.
 
 ## Design review (Impeccable)
@@ -100,10 +102,10 @@ The backlog lives in [GitHub Issues](https://github.com/jonlifschitzpersonal-bit
 
 1. **Start from an issue.** If there is none, create it (`gh issue create`) before the branch.
 2. **Update `main` and branch from it:** `git switch main && git pull`, then `git switch -c <type>/<issue>-<slug>`. Types: `feat`, `fix`, `docs`, `chore`, `refactor`. Example: `feat/15-app-shell`.
-3. **One branch, one issue.** Don't mix unrelated changes or refactors; open another issue instead.
+3. **One branch per working session.** It can close several issues (`Closes #12`, `Closes #13`); name it after the main one. Something unrelated that comes up still gets its own issue and is listed in the PR, never slipped in unannounced.
 4. **Read the diff before every commit** (`git status`, `git diff --staged`). Never commit secrets, `.env*` or generated files.
 5. **Commits with one intent each:** imperative subject in English, under 72 characters, and a body that says why when it isn't obvious.
-6. **Open the PR with `gh pr create`**, filling every section of `.github/pull_request_template.md`. Include `Closes #N` so the issue closes on merge.
+6. **Open the PR with `gh pr create` at the end of the session**, filling every section of `.github/pull_request_template.md`. Include a `Closes #N` for each issue it finishes.
 7. **Don't merge your own PR.** Jonathan reviews it on GitHub and merges it.
 
 ## Don't
