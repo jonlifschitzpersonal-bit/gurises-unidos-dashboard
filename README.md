@@ -56,8 +56,8 @@ CLAUDE.md                # rules for coding agents
 ## How we work
 
 - **Backlog:** every task is a [GitHub issue](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues), grouped by milestone; the order of work is in [`docs/PENDING_TASKS.md`](docs/PENDING_TASKS.md).
-- **Changes:** issue → branch → pull request with `Closes #N` → review → squash merge. `main` only accepts pull requests. The full workflow is in [`CLAUDE.md`](CLAUDE.md#git-workflow).
-- **Evidence:** every pull request follows the [template](.github/pull_request_template.md): scope, differences with Figma, checks and a verification ledger.
+- **Changes:** issue → approved plan → commits on `main` → lint, build and verification → push, with `Closes #N` in the commit that finishes the issue. `main` blocks force pushes and deletion, so history is never rewritten. The full workflow is in [`CLAUDE.md`](CLAUDE.md#git-workflow).
+- **Evidence:** the commit that closes each slice carries its verification ledger, and [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md) keeps the evidence for what exists. Until 2026-10-30 changes went through pull requests (#19 to #32), with the [template](.github/pull_request_template.md).
 
 ## Design tokens
 
@@ -73,7 +73,7 @@ The Tailwind theme only contains the tokens from Figma, with the same names (sla
 - [x] Scaffold the Next.js + Tailwind project
 - [x] Load the Figma tokens into the Tailwind theme
 - [x] Agent-ready docs (`CLAUDE.md`, context, state, decisions)
-- [x] Team workflow: issue backlog, pull request templates, protected `main`
+- [x] Team workflow: issue backlog, issue and pull request templates, protected `main` history
 - [ ] System components with variants, accessibility and Storybook
 - [ ] Design the Gurises Unidos screens in Figma
 - [ ] Dashboard slices: app shell, indicators, projects table, filters and states

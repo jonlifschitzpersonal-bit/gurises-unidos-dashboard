@@ -62,7 +62,7 @@ All tokens live in `app/globals.css`. Rules ([ADR 0002](docs/adr/0002-design-tok
 
 Work goes in **slices**: a small piece of the product with an observable result and a "done when". One slice = one issue, with one or more commits. Small, because a short diff can be reviewed in full.
 
-**One PR per working session, not per slice.** Everything done in a session (its slices, what comes up along the way and the closing docs) goes in one branch and one PR, merged once at the end. Reviewing by commit keeps each slice readable inside it.
+**No pull requests: closed slices go straight to `main`.** Jonathan's checkpoints are the approved plan and the ledger reported when the slice closes; each slice stays readable as its own commits on GitHub.
 
 1. **Read first:** the issue, the state docs, the exact Figma node (with its description and annotations) and the existing components and tokens.
 2. **Plan before code, and wait for approval.** The plan answers:
@@ -80,11 +80,11 @@ Work goes in **slices**: a small piece of the product with an observable result 
    - the product decisions still open. Ask them; don't decide them.
 
    For layout questions, show 2 or 3 ASCII wireframes before Figma or code: they are cheap and keep the discussion on structure.
-3. **Implement only what was approved.** If the plan has to change in a way that affects the result, scope or behavior, stop and ask. Smaller technical changes are listed in the PR under "Differences with the approved plan".
+3. **Implement only what was approved.** If the plan has to change in a way that affects the result, scope or behavior, stop and ask. Smaller technical changes are listed in the closing commit under "Differences with the approved plan" and reported to Jonathan.
 4. Run `npm run lint` and `npm run build`.
 5. **Verify with evidence:** measure in the browser against Figma and report each check as PASS, FAIL, UNVERIFIED or OUT OF SCOPE. What wasn't tested is UNVERIFIED, never PASS.
-6. **Close the slice:** update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md` in the same PR, and add an ADR in `docs/adr/` for a new architecture decision. A slice is not closed with a FAIL, or with a check its issue requires left UNVERIFIED.
-7. **Stop.** Don't start the next slice until it is asked for. Open the session's PR at the end, when Jonathan closes the session.
+6. **Close the slice:** update `docs/CURRENT_STATE.md` and `docs/PENDING_TASKS.md` in the same push, and add an ADR in `docs/adr/` for a new architecture decision. A slice is not closed with a FAIL, or with a check its issue requires left UNVERIFIED.
+7. **Push the closed slice, report its ledger and stop.** Don't start the next slice until it is asked for.
 8. If you assume something, say it and name the risk.
 
 ## Design review (Impeccable)
@@ -92,21 +92,22 @@ Work goes in **slices**: a small piece of the product with an observable result 
 [Impeccable](https://impeccable.style/docs) reviews the design on top of the Figma ledger: the ledger checks that the code matches Figma; Impeccable checks that the design holds up.
 
 - **`PRODUCT.md` and `DESIGN.md` are derived, not sources of truth.** `PRODUCT.md` comes from `docs/PROJECT_CONTEXT.md` and the ADRs; `DESIGN.md` (and `.impeccable/design.json`) from the Figma variables and components and `app/globals.css`. When those change, regenerate them (`/impeccable init`, `/impeccable document`) and run `/impeccable doctor`. If they disagree, the sources win.
-- **The design hook is on** (`.impeccable/config.json`): it checks every UI edit and, at the end of a turn, the files touched. Triage each finding: fix real problems; an ignore needs evidence and is disclosed in the PR.
+- **The design hook is on** (`.impeccable/config.json`): it checks every UI edit and, at the end of a turn, the files touched. Triage each finding: fix real problems; an ignore needs evidence and is disclosed in the closing commit.
 - **At the close of every UI slice, run `critique` and `audit`.** Fix each high-priority finding in the slice or file it as an issue.
 - **It can improve the system, not skip it.** A color, size or type style that doesn't exist becomes a token, in Figma first. Product calls (what is shown, what a text says) are proposed and Jonathan decides. Any command that changes something is worked as a slice.
 
 ## Git workflow
 
-The backlog lives in [GitHub Issues](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues), grouped by milestone. `main` is protected: changes reach it only through a pull request, merged with squash.
+The backlog lives in [GitHub Issues](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues), grouped by milestone. Work happens on `main` and is pushed directly, with no pull requests (Jonathan's call, 2026-10-30: one person reviews, so merging was a step without a review). The "Protect main" ruleset still blocks force pushes and deleting `main`, so history is never rewritten.
 
-1. **Start from an issue.** If there is none, create it (`gh issue create`) before the branch.
-2. **Update `main` and branch from it:** `git switch main && git pull`, then `git switch -c <type>/<issue>-<slug>`. Types: `feat`, `fix`, `docs`, `chore`, `refactor`. Example: `feat/15-app-shell`.
-3. **One branch per working session.** It can close several issues (`Closes #12`, `Closes #13`); name it after the main one. Something unrelated that comes up still gets its own issue and is listed in the PR, never slipped in unannounced.
+1. **Start from an issue.** If there is none, create it (`gh issue create`) before the code. Docs-only fixes can go without one.
+2. **Update `main` first:** `git switch main && git pull`.
+3. **Something unrelated that comes up gets its own issue and its own commit**, and is reported, never slipped in unannounced.
 4. **Read the diff before every commit** (`git status`, `git diff --staged`). Never commit secrets, `.env*` or generated files.
 5. **Commits with one intent each:** imperative subject in English, under 72 characters, and a body that says why when it isn't obvious.
-6. **Open the PR with `gh pr create` at the end of the session**, filling every section of `.github/pull_request_template.md`. Include a `Closes #N` for each issue it finishes.
-7. **Don't merge your own PR.** Jonathan reviews it on GitHub and merges it.
+6. **The commit that finishes an issue closes it:** `Closes #N` in its body, plus the verification ledger (PASS / FAIL / UNVERIFIED / OUT OF SCOPE, one line per check) and "Differences with the approved plan" if there are any. GitHub closes the issue when the commit reaches `main`.
+7. **Push only closed slices:** after `npm run lint`, `npm run build` and the verification pass, so `main` never holds half a slice. Never force push; fix a mistake with a new commit (`git revert` if needed).
+8. **A pull request only if Jonathan asks for one** (for example, a risky change he wants to review first). Then fill every section of `.github/pull_request_template.md` and don't merge it yourself.
 
 ## Don't
 
