@@ -93,6 +93,9 @@
   */
 }
 
+/* Hides the fictitious data notice once it is closed (see components/DemoNotice.tsx). */
+@custom-variant demo-dismissed (&:where([data-demo-notice="dismissed"] *));
+
 /* Inter comes from next/font (layout.tsx), which defines --font-inter. */
 @theme inline {
   --font-sans: var(--font-inter), system-ui, sans-serif;
