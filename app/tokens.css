@@ -10,8 +10,10 @@
 */
 :root {
   --blue-50: #eef6ff;
+  --blue-100: #cbe6ff;
   --blue-200: #a8d6ff;
   --blue-300: #8cc7ff;
+  --blue-400: #70b8ff;
   --blue-600: #2b7fd4;
   --blue-900: #0b3f6e;
   --gray-100: #f3f4f6;
@@ -41,9 +43,11 @@
   --color-action-disabled-bg: var(--gray-200);
   --color-action-primary-bg: var(--blue-200);
   --color-action-primary-bg-hover: var(--blue-300);
+  --color-action-primary-bg-pressed: var(--blue-400);
   --color-action-secondary-border: var(--blue-200);
   --color-action-secondary-text: var(--blue-900);
   --color-action-subtle-bg-hover: var(--blue-50);
+  --color-action-subtle-bg-pressed: var(--blue-100);
   --color-focus-ring: var(--blue-600);
   --color-feedback-negative: var(--red-700);
   --color-feedback-negative-subtle: var(--red-50);

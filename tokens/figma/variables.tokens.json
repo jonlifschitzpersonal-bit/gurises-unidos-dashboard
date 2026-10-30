@@ -30,6 +30,23 @@
         "$type": "color",
         "$value": "#EEF6FF"
       },
+      "100": {
+        "$extensions": {
+          "figma-console-mcp": {
+            "collectionId": "VariableCollectionId:1009:208",
+            "figmaResolvedType": "COLOR",
+            "lastSyncedValue": {
+              "value": {
+                "literal": "#CBE6FF"
+              }
+            },
+            "primaryMode": "value",
+            "variableId": "VariableID:1037:975"
+          }
+        },
+        "$type": "color",
+        "$value": "#CBE6FF"
+      },
       "200": {
         "$extensions": {
           "figma-console-mcp": {
@@ -63,6 +80,23 @@
         },
         "$type": "color",
         "$value": "#8CC7FF"
+      },
+      "400": {
+        "$extensions": {
+          "figma-console-mcp": {
+            "collectionId": "VariableCollectionId:1009:208",
+            "figmaResolvedType": "COLOR",
+            "lastSyncedValue": {
+              "value": {
+                "literal": "#70B8FF"
+              }
+            },
+            "primaryMode": "value",
+            "variableId": "VariableID:1037:976"
+          }
+        },
+        "$type": "color",
+        "$value": "#70B8FF"
       },
       "600": {
         "$extensions": {
@@ -643,6 +677,30 @@
             },
             "$type": "color",
             "$value": "{primitives.blue.300}"
+          },
+          "bg-pressed": {
+            "$description": "Fondo del botón principal mientras se aprieta (:active), un paso más oscuro que el hover. Solo acciones.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "codeSyntax": {
+                  "WEB": "var(--color-action-primary-bg-pressed)"
+                },
+                "collectionId": "VariableCollectionId:1009:209",
+                "figmaResolvedType": "COLOR",
+                "lastSyncedValue": {
+                  "light": {
+                    "reference": "{primitives.blue.400}"
+                  }
+                },
+                "primaryMode": "light",
+                "scopes": [
+                  "FRAME_FILL"
+                ],
+                "variableId": "VariableID:1037:977"
+              }
+            },
+            "$type": "color",
+            "$value": "{primitives.blue.400}"
           }
         },
         "secondary": {
@@ -721,6 +779,30 @@
             },
             "$type": "color",
             "$value": "{primitives.blue.50}"
+          },
+          "bg-pressed": {
+            "$description": "Fondo de una acción sutil o secundaria mientras se aprieta (:active), un paso más oscuro que su hover. No para superficies fijas ni estados seleccionados.",
+            "$extensions": {
+              "figma-console-mcp": {
+                "codeSyntax": {
+                  "WEB": "var(--color-action-subtle-bg-pressed)"
+                },
+                "collectionId": "VariableCollectionId:1009:209",
+                "figmaResolvedType": "COLOR",
+                "lastSyncedValue": {
+                  "light": {
+                    "reference": "{primitives.blue.100}"
+                  }
+                },
+                "primaryMode": "light",
+                "scopes": [
+                  "FRAME_FILL"
+                ],
+                "variableId": "VariableID:1037:978"
+              }
+            },
+            "$type": "color",
+            "$value": "{primitives.blue.100}"
           }
         }
       },
