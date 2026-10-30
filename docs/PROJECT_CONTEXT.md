@@ -15,6 +15,13 @@ To report to donors, leadership had to go through file after file to build the p
 | **NGO leadership** (primary) | A global view of projects, beneficiaries and results for a period, to prepare donor reports. |
 | Project staff (future) | Load and update their project data. The flows exist in v1 but don't save ([ADR 0005](adr/0005-fictitious-data-no-backend.md), [ADR 0006](adr/0006-backend-actions-without-persistence.md)). |
 
+**It is an internal tool.** Only leadership sees the screen. Donors get a separate report and never see the dashboard.
+
+## Voice and brand
+
+- **UI copy is Spanish (Uruguay), with voseo.** Instructions use *vos*: "Elegí un año", "Probá de nuevo". Buttons use the infinitive: "Cargar métricas", "Reintentar". Messages speak as the organization, in the first person plural: "No pudimos cargar los datos".
+- **No brand assets yet.** The name "Gurises Unidos" appears as text only. There is no logo or color palette of the organization in the project, and none is invented; the favicon waits for a real file ([#16](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/16)). The colors are the design system's.
+
 ## What the dashboard shows
 
 **Main screen**
