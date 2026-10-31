@@ -13,8 +13,13 @@ const labels = {
 export type Status = keyof typeof labels;
 
 const badgeVariants = cva(
-  // Hug, never wraps or stretches, also inside a table cell (Figma annotation).
-  "inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full px-2 py-1 text-label-xs whitespace-nowrap",
+  [
+    // Hug, never wraps or stretches, also inside a table cell (Figma annotation).
+    "inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full px-2 py-1 text-label-xs whitespace-nowrap",
+    // Forced colors (Windows High Contrast) removes the fill and the dot: a 1px inside
+    // outline keeps the pill, so it still reads as a badge. The text carries the status.
+    "forced-colors:outline forced-colors:-outline-offset-1",
+  ],
   {
     variants: {
       status: {

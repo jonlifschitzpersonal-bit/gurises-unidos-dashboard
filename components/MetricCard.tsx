@@ -11,6 +11,10 @@ import { cn } from "@/lib/cn";
 
 type Trend = "up" | "down" | "neutral";
 
+// A skeleton shape. In forced colors (Windows High Contrast) the fill is removed,
+// so a 1px inside outline in the system color keeps the shape visible.
+const SKELETON = "bg-bg-skeleton forced-colors:outline forced-colors:-outline-offset-1";
+
 const trendIcons: Record<Trend, IconName> = {
   up: "arrow-up",
   down: "arrow-down",
@@ -86,7 +90,7 @@ export function MetricCard({
         aria-hidden="true"
         className={cn(
           "flex size-10 shrink-0 items-center justify-center rounded-full text-icon-accent [&_svg]:size-5",
-          loading ? "bg-bg-skeleton" : "bg-bg-accent-subtle",
+          loading ? SKELETON : "bg-bg-accent-subtle",
         )}
       >
         {!loading && icon}
@@ -94,16 +98,18 @@ export function MetricCard({
 
       {/* The title is a prop, not data: it is there while loading too, so the card keeps
           its name and its place in the heading list. Visible only once loaded (Figma). */}
-      <h3 id={titleId} className={cn("w-full text-body-sm text-text-muted", loading && "sr-only")}>
+      {/* w-full only when visible: with sr-only it overrides the 1px width, and the
+          hidden (absolute) title spans the viewport and scrolls the page sideways. */}
+      <h3 id={titleId} className={cn("text-body-sm text-text-muted", loading ? "sr-only" : "w-full")}>
         {title}
       </h3>
 
       {loading ? (
         <>
           {/* Skeletons with Figma's sizes, so the card doesn't jump when data arrives. */}
-          <span aria-hidden="true" className="h-5 w-40 rounded-sm bg-bg-skeleton" />
-          <span aria-hidden="true" className="h-9 w-24 rounded-sm bg-bg-skeleton" />
-          <span aria-hidden="true" className="h-5 w-12 rounded-sm bg-bg-skeleton" />
+          <span aria-hidden="true" className={cn("h-5 w-40 rounded-sm", SKELETON)} />
+          <span aria-hidden="true" className={cn("h-9 w-24 rounded-sm", SKELETON)} />
+          <span aria-hidden="true" className={cn("h-5 w-12 rounded-sm", SKELETON)} />
           <p className="sr-only">Cargando</p>
         </>
       ) : (
