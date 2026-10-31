@@ -241,7 +241,8 @@ Specs come from the Figma components. Which ones are built in code is in `docs/C
 - **Pressed** (`:active`, one step darker than hover; no variant in Figma, it is annotated): primary goes to Deep Sky (`action-primary-bg-pressed`); secondary and ghost fill with Pale Sky (`action-subtle-bg-pressed`).
 - **Focus:** a 2px Signal Blue ring outside the button, on keyboard focus only.
 - **Disabled:** Disabled Gray fill (primary) or border (secondary), Ash label.
-- **Loading:** a 16px spinner takes the icon's place, so the width doesn't change; with no icon it sits over the label, which turns transparent but is still read. The button keeps its focus.
+- **Loading:** a 16px spinner takes the icon's place, so the width doesn't change; with no icon it sits over the label, which turns transparent but is still read. The button keeps its focus, doesn't look pressed, and wins over `disabled`. The screen that uses it announces the result in a status region ([ADR 0009](docs/adr/0009-async-action-feedback.md)).
+- **Forced colors** (Windows High Contrast): fills and the secondary's inside border disappear, so every variant shows a 1px outline in the system color, drawn inside (same size). The focus ring stays 2px outside.
 
 ### Metric card
 - **Corner Style:** 12px.
@@ -250,13 +251,15 @@ Specs come from the Figma components. Which ones are built in code is in `docs/C
 - **Content, top to bottom:** a 20px icon in a 40px Mist Blue circle; the title in Slate (`body-sm`); the value in Ink (`heading-metric`); the trend (arrow + value in `label-sm`), green for up, red for down, Slate for neutral.
 - **States:** `loading` (skeleton the size of the content, no trend, no icon; the title stays for screen readers) and `error` (value "—", no trend). With no value, the card shows "—". The trend can be hidden for a first period with nothing to compare. Open design questions: [#38](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/38).
 - **Limit:** down is always red. A metric where going down is good needs a design decision first.
+- **Forced colors:** the skeletons and the icon circle are fills, so each one shows a 1px outline instead. The trend keeps its arrow; the color is lost and the text still says the direction.
 
 ### Status badge
 - **Style:** pill, 4px × 8px padding, a 6px dot and a fixed label (`label-xs`), 6px apart.
 - **Status:** `active` green ("Activo"), `paused` gray ("Pausado"), `error` red ("Error"). The label is fixed per status, so color and text never contradict. Not clickable.
+- **Forced colors:** the fill and the dot disappear; a 1px outline keeps the pill, and the label carries the status.
 
 ### Demo notice (signature)
-- **Style:** a full-width Mist Blue band with a 1px Sky Edge bottom border (included in its height: 41px), first on every screen: a Harbor Navy info icon, the fixed message in Ink (`body-sm`) and a 32px close button with a Slate X that turns Ink on hover and focus.
+- **Style:** a full-width Mist Blue band with a 1px Sky Edge bottom border (included in its height: 41px), first on every screen: a Harbor Navy info icon, the fixed message in Ink (`body-sm`) and a 32px close button with a Slate X that turns Ink on hover and focus. In forced colors the X gets the same 1px outline as `Button`.
 - **Alignment:** the icon and the X stay aligned with the first line when the message wraps.
 - **Behavior:** once closed, it stays closed in that browser. When the top bar exists, a small fixed "Datos ficticios" marker stays in it and can't be closed.
 
@@ -269,6 +272,7 @@ Specs come from the Figma components. Which ones are built in code is in `docs/C
 - **Do** keep secondary text at Slate or darker (at least 4.5:1).
 - **Do** show a 2px Signal Blue focus ring on every interactive element.
 - **Do** draw loading skeletons at the size of the content they replace.
+- **Do** give anything that is drawn only with a fill or a shadow (a control, a skeleton, a pill) a 1px outline in forced colors, so it doesn't vanish in Windows High Contrast.
 
 ### Don't:
 - **Don't** use arbitrary values (`p-[22px]`, `text-[#333]`) or Tailwind's default palette, font sizes or radii: they are turned off and fail silently.

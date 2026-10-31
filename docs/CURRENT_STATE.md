@@ -30,5 +30,5 @@
 
 ## Design (Figma)
 
-- The design system exists: variables, text styles and the components `Icon`, `Button`, `MetricCard`, `StatusBadge` and `DemoNotice`. The Button pressed state is annotated (no variant) and has its tokens ([#14](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/14)). The `MetricCard` sample title is now "Familias alcanzadas" with the `users` icon.
+- The design system exists: variables, text styles and the components `Icon`, `Button`, `MetricCard`, `StatusBadge` and `DemoNotice`. The Button pressed state is annotated (no variant) and has its tokens ([#14](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/14)). The `MetricCard` sample title is now "Familias alcanzadas" with the `users` icon. Each component has an Accessibility annotation for forced colors, and `Button` one for the loading announcement and loading over disabled (native and in its visible `annotations` frame, [#37](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/37), [#40](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/40)).
 - The Gurises Unidos screens are **not designed yet** in the Figma file.

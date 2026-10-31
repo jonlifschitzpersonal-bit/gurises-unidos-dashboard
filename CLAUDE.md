@@ -69,7 +69,10 @@ Rules ([ADR 0002](docs/adr/0002-design-tokens-in-tailwind-theme.md)):
 
 - **UI copy is in Spanish (Uruguay), with voseo** ("Elegí un año"; buttons in the infinitive), and `lang="es"`. Voice and brand: `docs/PROJECT_CONTEXT.md`. Code, docs, commits and PRs are in English.
 - **Component and prop names match Figma:** layer and component names become component names; Figma properties become props with the same names and values.
-- **Semantic HTML:** `<button>` for actions, `<a>`/`next/link` to navigate, never a clickable `<div>`. Visible focus on every interactive element.
+- **Semantic HTML:** `<button>` for actions, `<a>`/`next/link` to navigate, never a clickable `<div>`. Visible focus on every interactive element. A component with its own keyboard pattern (dialog, tabs, menu, select) uses a headless library, chosen in its slice with an ADR; native HTML is never replaced by one.
+- **Forced colors (Windows High Contrast):** anything drawn only with a fill or a shadow (a control, a skeleton, a pill) gets `forced-colors:outline forced-colors:-outline-offset-1`, so it keeps its shape at the same size. Check it by emulating `forced-colors: active` and measuring both modes.
+- **Async actions:** the `Button` shows it is busy (`loading`); the screen that triggers the action announces the result in a `role="status"` region that is always rendered ([ADR 0009](docs/adr/0009-async-action-feedback.md)).
+- **`sr-only` never goes with size classes** (`w-full`): they override its 1px box and the hidden element can scroll the page sideways. "No horizontal scroll" is measured on the page (`scrollWidth`), not on the component.
 - **Every data view has its states:** loading, error, retry, empty and empty by filter (see `docs/PROJECT_CONTEXT.md`).
 - Server components by default; `"use client"` only where there is state or events, as low in the tree as possible.
 

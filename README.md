@@ -4,7 +4,7 @@ A dashboard for the leadership of Gurises Unidos, a Uruguayan NGO that works wit
 
 It is built from a Figma file prepared for agents ("AI-ready"), with a design system whose tokens and components map one to one between Figma and code. **The data is fictitious.**
 
-> **Status: in progress.** The design tokens are generated from Figma and the system components (`Icon`, `Button`, `StatusBadge`, `MetricCard`) are built with the same API as in Figma. Next: their accessibility pass, Storybook and the dashboard slices. See [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md).
+> **Status: in progress.** The design tokens are generated from Figma and the system components (`Icon`, `Button`, `StatusBadge`, `MetricCard`) are built with the same API as in Figma, and work with the keyboard and in Windows High Contrast. Next: Storybook, a screen reader check and the dashboard slices. See [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md).
 
 ## What it does
 
@@ -88,7 +88,8 @@ The CSS is **generated, not copied**: the Figma variables and text styles are ex
 - [x] Agent-ready docs (`CLAUDE.md`, context, state, decisions)
 - [x] Team workflow: issue backlog, issue and pull request templates, protected `main` history
 - [x] System components with variants (`Icon`, `Button`, `StatusBadge`, `MetricCard`)
-- [ ] Accessibility pass and Storybook for the system components
+- [x] Accessibility pass of the system components: keyboard, focus, forced colors, async feedback ([ADR 0009](docs/adr/0009-async-action-feedback.md))
+- [ ] Storybook for the system components, and a check with a real screen reader
 - [ ] Design the Gurises Unidos screens in Figma
 - [ ] Dashboard slices: app shell, indicators, projects table, filters and states
 - [ ] Preview deploy on Vercel

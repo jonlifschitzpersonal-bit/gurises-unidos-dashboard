@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-30T18:20:16.000Z",
+  "generatedAt": "2026-10-31T12:38:49.000Z",
   "title": "Design System: Gurises Unidos dashboard",
   "extensions": {
     "colorMeta": {
@@ -224,7 +224,7 @@
       "refersTo": "button-primary",
       "description": "The main action of a view, such as \"Cargar métricas\".",
       "html": "<button class=\"ds-btn ds-btn-primary\" type=\"button\">Cargar métricas</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 10px 16px; border: 1px solid transparent; border-radius: var(--radius-md, 8px); font: 500 0.875rem/1.25rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-btn:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); outline-offset: 0; } .ds-btn-primary { background: var(--color-action-primary-bg, #a8d6ff); color: var(--color-text-default, #111827); } .ds-btn-primary:hover { background: var(--color-action-primary-bg-hover, #8cc7ff); } .ds-btn-primary:disabled { background: var(--color-action-disabled-bg, #e5e7eb); color: var(--color-text-disabled, #9ca3af); cursor: not-allowed; }"
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 10px 16px; border: 1px solid transparent; border-radius: var(--radius-md, 8px); font: 500 0.875rem/1.25rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-btn:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); outline-offset: 0; } .ds-btn-primary { background: var(--color-action-primary-bg, #a8d6ff); color: var(--color-text-default, #111827); } .ds-btn-primary:hover { background: var(--color-action-primary-bg-hover, #8cc7ff); } .ds-btn-primary:disabled { background: var(--color-action-disabled-bg, #e5e7eb); color: var(--color-text-disabled, #9ca3af); cursor: not-allowed; } @media (forced-colors: active) { .ds-btn { outline: 1px solid; outline-offset: -1px; } .ds-btn:focus-visible { outline-width: 2px; outline-offset: 0; } }"
     },
     {
       "name": "Secondary Button",
@@ -232,7 +232,7 @@
       "refersTo": "button-secondary",
       "description": "A second action next to the primary one.",
       "html": "<button class=\"ds-btn ds-btn-secondary\" type=\"button\">Nuevo proyecto</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 10px 16px; border: 1px solid transparent; border-radius: var(--radius-md, 8px); font: 500 0.875rem/1.25rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-btn:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); outline-offset: 0; } .ds-btn-secondary { background: transparent; border-color: var(--color-action-secondary-border, #a8d6ff); color: var(--color-action-secondary-text, #0b3f6e); } .ds-btn-secondary:hover { background: var(--color-action-subtle-bg-hover, #eef6ff); }"
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 10px 16px; border: 1px solid transparent; border-radius: var(--radius-md, 8px); font: 500 0.875rem/1.25rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-btn:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); outline-offset: 0; } .ds-btn-secondary { background: transparent; border-color: var(--color-action-secondary-border, #a8d6ff); color: var(--color-action-secondary-text, #0b3f6e); } .ds-btn-secondary:hover { background: var(--color-action-subtle-bg-hover, #eef6ff); } @media (forced-colors: active) { .ds-btn { outline: 1px solid; outline-offset: -1px; } .ds-btn:focus-visible { outline-width: 2px; outline-offset: 0; } }"
     },
     {
       "name": "Ghost Button",
@@ -240,7 +240,7 @@
       "refersTo": "button-ghost",
       "description": "A low-emphasis action.",
       "html": "<button class=\"ds-btn ds-btn-ghost\" type=\"button\">Exportar</button>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 10px 16px; border: 1px solid transparent; border-radius: var(--radius-md, 8px); font: 500 0.875rem/1.25rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-btn:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); outline-offset: 0; } .ds-btn-ghost { background: transparent; color: var(--color-text-default, #111827); } .ds-btn-ghost:hover { background: var(--color-action-subtle-bg-hover, #eef6ff); }"
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 10px 16px; border: 1px solid transparent; border-radius: var(--radius-md, 8px); font: 500 0.875rem/1.25rem Inter, system-ui, sans-serif; cursor: pointer; } .ds-btn:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); outline-offset: 0; } .ds-btn-ghost { background: transparent; color: var(--color-text-default, #111827); } .ds-btn-ghost:hover { background: var(--color-action-subtle-bg-hover, #eef6ff); } @media (forced-colors: active) { .ds-btn { outline: 1px solid; outline-offset: -1px; } .ds-btn:focus-visible { outline-width: 2px; outline-offset: 0; } }"
     },
     {
       "name": "Metric Card",
@@ -248,7 +248,7 @@
       "refersTo": "metric-card",
       "description": "One indicator with its title, value and change vs. the previous year.",
       "html": "<article class=\"ds-metric\"><span class=\"ds-metric-icon\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M22 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg></span><h3 class=\"ds-metric-title\">Familias alcanzadas</h3><p class=\"ds-metric-value\">1.284</p><p class=\"ds-metric-trend\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m8 6 4-4 4 4\"/><path d=\"M12 2v20\"/></svg>+4,0 % vs. año anterior</p></article>",
-      "css": ".ds-metric { display: flex; flex-direction: column; gap: 12px; min-width: 240px; padding: 20px; background: var(--color-bg-surface, #ffffff); border: 1px solid var(--color-border-default, #e5e7eb); border-radius: var(--radius-lg, 12px); font-family: Inter, system-ui, sans-serif; } .ds-metric-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 9999px; background: var(--color-bg-accent-subtle, #eef6ff); color: var(--color-icon-accent, #0b3f6e); } .ds-metric-title { margin: 0; font: 400 0.875rem/1.25rem Inter, system-ui, sans-serif; color: var(--color-text-muted, #4b5563); } .ds-metric-value { margin: 0; font: 600 1.75rem/2.25rem Inter, system-ui, sans-serif; color: var(--color-text-default, #111827); } .ds-metric-trend { display: flex; align-items: center; gap: 4px; margin: 0; font: 500 0.8125rem/1.25rem Inter, system-ui, sans-serif; color: var(--color-feedback-positive, #15803d); }"
+      "css": ".ds-metric { display: flex; flex-direction: column; gap: 12px; min-width: 240px; padding: 20px; background: var(--color-bg-surface, #ffffff); border: 1px solid var(--color-border-default, #e5e7eb); border-radius: var(--radius-lg, 12px); font-family: Inter, system-ui, sans-serif; } .ds-metric-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 9999px; background: var(--color-bg-accent-subtle, #eef6ff); color: var(--color-icon-accent, #0b3f6e); } .ds-metric-title { margin: 0; font: 400 0.875rem/1.25rem Inter, system-ui, sans-serif; color: var(--color-text-muted, #4b5563); } .ds-metric-value { margin: 0; font: 600 1.75rem/2.25rem Inter, system-ui, sans-serif; color: var(--color-text-default, #111827); } .ds-metric-trend { display: flex; align-items: center; gap: 4px; margin: 0; font: 500 0.8125rem/1.25rem Inter, system-ui, sans-serif; color: var(--color-feedback-positive, #15803d); } @media (forced-colors: active) { .ds-metric-icon { outline: 1px solid; outline-offset: -1px; } }"
     },
     {
       "name": "Status Badge",
@@ -256,7 +256,7 @@
       "refersTo": "status-badge-active",
       "description": "A project's status, with a fixed label per status. Not clickable.",
       "html": "<span class=\"ds-badge ds-badge-active\"><span class=\"ds-badge-dot\" aria-hidden=\"true\"></span>Activo</span>",
-      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 4px 8px; border-radius: 9999px; font: 500 0.75rem/1rem Inter, system-ui, sans-serif; } .ds-badge-dot { width: 6px; height: 6px; border-radius: 9999px; background: currentColor; } .ds-badge-active { background: var(--color-feedback-positive-subtle, #f0fdf4); color: var(--color-feedback-positive, #15803d); }"
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 4px 8px; border-radius: 9999px; font: 500 0.75rem/1rem Inter, system-ui, sans-serif; } .ds-badge-dot { width: 6px; height: 6px; border-radius: 9999px; background: currentColor; } .ds-badge-active { background: var(--color-feedback-positive-subtle, #f0fdf4); color: var(--color-feedback-positive, #15803d); } @media (forced-colors: active) { .ds-badge { outline: 1px solid; outline-offset: -1px; } }"
     },
     {
       "name": "Demo Notice",
@@ -264,7 +264,7 @@
       "refersTo": "demo-notice",
       "description": "Full-width band, first on every screen, that says the data is fictitious.",
       "html": "<section class=\"ds-notice\" aria-label=\"Aviso de datos ficticios\"><svg class=\"ds-notice-icon\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/></svg><p class=\"ds-notice-text\">Demo con datos ficticios: no son cifras reales de Gurises Unidos y lo que cargues no se guarda.</p><button class=\"ds-notice-close\" type=\"button\" aria-label=\"Cerrar aviso\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/></svg></button></section>",
-      "css": ".ds-notice { display: flex; align-items: flex-start; gap: 8px; padding: 4px 8px 4px 16px; background: var(--color-bg-accent-subtle, #eef6ff); border-bottom: 1px solid var(--color-border-accent, #a8d6ff); font-family: Inter, system-ui, sans-serif; } .ds-notice-icon { flex-shrink: 0; margin-top: 8px; color: var(--color-icon-accent, #0b3f6e); } .ds-notice-text { flex: 1; min-width: 0; margin: 0; padding: 6px 0; font: 400 0.875rem/1.25rem Inter, system-ui, sans-serif; color: var(--color-text-default, #111827); } .ds-notice-close { display: flex; flex-shrink: 0; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--radius-sm, 6px); background: transparent; color: var(--color-text-muted, #4b5563); cursor: pointer; } .ds-notice-close:hover, .ds-notice-close:focus-visible { color: var(--color-text-default, #111827); } .ds-notice-close:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); }"
+      "css": ".ds-notice { display: flex; align-items: flex-start; gap: 8px; padding: 4px 8px 4px 16px; background: var(--color-bg-accent-subtle, #eef6ff); border-bottom: 1px solid var(--color-border-accent, #a8d6ff); font-family: Inter, system-ui, sans-serif; } .ds-notice-icon { flex-shrink: 0; margin-top: 8px; color: var(--color-icon-accent, #0b3f6e); } .ds-notice-text { flex: 1; min-width: 0; margin: 0; padding: 6px 0; font: 400 0.875rem/1.25rem Inter, system-ui, sans-serif; color: var(--color-text-default, #111827); } .ds-notice-close { display: flex; flex-shrink: 0; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--radius-sm, 6px); background: transparent; color: var(--color-text-muted, #4b5563); cursor: pointer; } .ds-notice-close:hover, .ds-notice-close:focus-visible { color: var(--color-text-default, #111827); } .ds-notice-close:focus-visible { outline: 2px solid var(--color-focus-ring, #2b7fd4); } @media (forced-colors: active) { .ds-notice-close { outline: 1px solid; outline-offset: -1px; } .ds-notice-close:focus-visible { outline-width: 2px; outline-offset: 0; } }"
     }
   ],
   "narrative": {
@@ -310,7 +310,8 @@
       "**Do** pair every green or red with an arrow and a written value, or a fixed label.",
       "**Do** keep secondary text at Slate or darker (at least 4.5:1).",
       "**Do** show a 2px Signal Blue focus ring on every interactive element.",
-      "**Do** draw loading skeletons at the size of the content they replace."
+      "**Do** draw loading skeletons at the size of the content they replace.",
+      "**Do** give anything that is drawn only with a fill or a shadow (a control, a skeleton, a pill) a 1px outline in forced colors, so it doesn't vanish in Windows High Contrast."
     ],
     "donts": [
       "**Don't** use arbitrary values (`p-[22px]`, `text-[#333]`) or Tailwind's default palette, font sizes or radii: they are turned off and fail silently.",
