@@ -16,7 +16,12 @@ const buttonVariants = cva(
     // The icon arrives through a prop (instance swap): the Button sizes it.
     "[&_svg]:size-4 [&_svg]:shrink-0",
     // Focus ring: 2px outside stroke in Figma.
-    "focus-visible:outline-2 focus-visible:outline-focus-ring",
+    "focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-focus-ring",
+    // Windows High Contrast (forced colors) removes fills and the secondary's
+    // inset ring (a box-shadow), so every variant would read as plain text.
+    // A 1px outline drawn inside, in the system color, gives back the boundary
+    // without changing the height. The focus ring above still wins (2px, outside).
+    "forced-colors:outline forced-colors:-outline-offset-1",
     "disabled:cursor-not-allowed",
   ],
   {
@@ -24,20 +29,21 @@ const buttonVariants = cva(
       variant: {
         primary: [
           "bg-action-primary-bg text-text-default",
-          "hover:bg-action-primary-bg-hover active:bg-action-primary-bg-pressed",
+          // Pressed only when not busy: Space still triggers :active on a loading button.
+          "hover:bg-action-primary-bg-hover not-aria-disabled:active:bg-action-primary-bg-pressed",
           "disabled:bg-action-disabled-bg disabled:text-text-disabled",
         ],
         secondary: [
           // Inside stroke that doesn't add to the 40px height: an inset ring, not a border.
           "text-action-secondary-text inset-ring inset-ring-action-secondary-border",
-          "hover:bg-action-subtle-bg-hover active:bg-action-subtle-bg-pressed",
+          "hover:bg-action-subtle-bg-hover not-aria-disabled:active:bg-action-subtle-bg-pressed",
           // In Figma the focus ring replaces the border.
           "focus-visible:inset-ring-0",
           "disabled:bg-transparent disabled:text-text-disabled disabled:inset-ring-action-disabled-bg",
         ],
         ghost: [
           "text-text-default",
-          "hover:bg-action-subtle-bg-hover active:bg-action-subtle-bg-pressed",
+          "hover:bg-action-subtle-bg-hover not-aria-disabled:active:bg-action-subtle-bg-pressed",
           "disabled:bg-transparent disabled:text-text-disabled",
         ],
       },
@@ -61,6 +67,10 @@ type ButtonProps = Omit<ComponentProps<"button">, "children"> &
     /**
      * Shows a spinner, can't be pressed again and keeps its width.
      * Unlike disabled, it stays focusable, so focus isn't lost while it works.
+     * Wins over `disabled`: a loading button is never disabled, or focus would
+     * jump to the page start. Its name becomes "<label>, cargando"; the result
+     * ("Guardado", "No se pudo guardar") is announced by the caller in a
+     * role="status" region that is always rendered (ADR 0009).
      */
     loading?: boolean;
   };
@@ -70,6 +80,7 @@ export function Button({
   size,
   iconStart,
   loading = false,
+  disabled,
   className,
   children,
   type = "button",
@@ -90,6 +101,7 @@ export function Button({
       // form (implicit submission), so a form ignores submits while it's busy.
       // No wrapper function, so the Button also works in server components.
       type={loading ? "button" : type}
+      disabled={loading ? false : disabled}
       aria-disabled={loading || undefined}
       onClick={loading ? undefined : onClick}
       className={cn(
@@ -100,7 +112,7 @@ export function Button({
     >
       {loading ? <Spinner className={spinnerCoversLabel ? "absolute" : undefined} /> : iconStart}
       {spinnerCoversLabel ? <span className="opacity-0">{children}</span> : children}
-      {/* The leading space keeps the name "Guardar, cargando" apart for screen readers. */}
+      {/* The comma makes screen readers pause: "Guardar, cargando". */}
       {loading && <span className="sr-only">, cargando</span>}
     </button>
   );

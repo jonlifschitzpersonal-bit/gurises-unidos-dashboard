@@ -70,7 +70,8 @@ export function DemoNotice({ focusTargetId }: DemoNoticeProps) {
           type="button"
           aria-label="Cerrar aviso"
           onClick={dismiss}
-          className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-sm text-text-muted hover:text-text-default focus-visible:text-text-default focus-visible:outline-2 focus-visible:outline-focus-ring"
+          // forced-colors: the same 1px inside boundary as Button, so it reads as a button in High Contrast.
+          className="flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-sm text-text-muted hover:text-text-default focus-visible:text-text-default focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-focus-ring forced-colors:outline forced-colors:-outline-offset-1"
         >
           <Icon name="x" />
         </button>

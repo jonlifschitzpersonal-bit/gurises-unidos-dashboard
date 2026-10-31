@@ -20,6 +20,7 @@ An ADR records one decision that shapes the project: the context, the options co
 | [0006](0006-backend-actions-without-persistence.md) | Backend actions are fully built, without persistence | Accepted |
 | [0007](0007-tokens-generated-from-figma.md) | Token CSS generated from a Figma export with Style Dictionary (refines 0002) | Accepted |
 | [0008](0008-component-variants-cva-lucide.md) | Component variants with cva, class merging with tailwind-merge, icons from lucide-react | Accepted |
+| [0009](0009-async-action-feedback.md) | Async action feedback: the Button shows it is busy, the caller announces the result | Accepted |
 
 ## Template
 
