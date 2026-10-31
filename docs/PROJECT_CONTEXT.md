@@ -63,6 +63,7 @@ Known trade-off: with an active search, the indicators show the total while the 
 |---|---|
 | Design, tokens and components | Figma "Design Engineer Journey" (see `CLAUDE.md`) |
 | Tokens in code | `app/tokens.css`, generated from the Figma export in `tokens/figma/` ([ADR 0007](adr/0007-tokens-generated-from-figma.md)) |
+| Components in code | `components/`, same names, props and values as the Figma components ([ADR 0008](adr/0008-component-variants-cva-lucide.md)) |
 | Product rules and states | This file |
 | Decisions | [`docs/adr/`](adr/README.md) |
 | Status | [`CURRENT_STATE.md`](CURRENT_STATE.md) and [`PENDING_TASKS.md`](PENDING_TASKS.md) |

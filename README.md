@@ -4,7 +4,7 @@ A dashboard for the leadership of Gurises Unidos, a Uruguayan NGO that works wit
 
 It is built from a Figma file prepared for agents ("AI-ready"), with a design system whose tokens and components map one to one between Figma and code. **The data is fictitious.**
 
-> **Status: in progress.** The project is scaffolded, the design tokens are in place and the backlog is in GitHub Issues. Next: system components and the dashboard slices. See [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md).
+> **Status: in progress.** The design tokens are generated from Figma and the system components (`Icon`, `Button`, `StatusBadge`, `MetricCard`) are built with the same API as in Figma. Next: their accessibility pass, Storybook and the dashboard slices. See [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md).
 
 ## What it does
 
@@ -20,6 +20,7 @@ Details in [`docs/PROJECT_CONTEXT.md`](docs/PROJECT_CONTEXT.md).
 - [Next.js](https://nextjs.org) 16 (App Router) + React 19
 - TypeScript
 - [Tailwind CSS](https://tailwindcss.com) v4, themed only with the design system tokens
+- [cva](https://cva.style) for component variants, `clsx` + `tailwind-merge` for class merging, [Lucide](https://lucide.dev) icons (`lucide-react`). Why: [ADR 0008](docs/adr/0008-component-variants-cva-lucide.md)
 
 ## Run it locally
 
@@ -48,6 +49,9 @@ app/
 │   └── tokens.ts     # GENERATED list of tokens, from tokens/figma/
 ├── globals.css       # Tailwind, imports tokens.css, base styles
 └── tokens.css        # GENERATED design tokens (@theme), from tokens/figma/
+components/           # system components, one per Figma component: Icon, Button,
+                      # StatusBadge, MetricCard, DemoNotice
+lib/cn.ts             # joins classes and resolves conflicts, aware of the Figma text styles
 docs/
 ├── PROJECT_CONTEXT.md   # product, users, states, sources of truth
 ├── CURRENT_STATE.md     # what is built and verified
@@ -83,7 +87,8 @@ The CSS is **generated, not copied**: the Figma variables and text styles are ex
 - [x] Generate the token CSS from a Figma export (Style Dictionary)
 - [x] Agent-ready docs (`CLAUDE.md`, context, state, decisions)
 - [x] Team workflow: issue backlog, issue and pull request templates, protected `main` history
-- [ ] System components with variants, accessibility and Storybook
+- [x] System components with variants (`Icon`, `Button`, `StatusBadge`, `MetricCard`)
+- [ ] Accessibility pass and Storybook for the system components
 - [ ] Design the Gurises Unidos screens in Figma
 - [ ] Dashboard slices: app shell, indicators, projects table, filters and states
 - [ ] Preview deploy on Vercel

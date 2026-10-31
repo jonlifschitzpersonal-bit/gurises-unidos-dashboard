@@ -241,14 +241,14 @@ Specs come from the Figma components. Which ones are built in code is in `docs/C
 - **Pressed** (`:active`, one step darker than hover; no variant in Figma, it is annotated): primary goes to Deep Sky (`action-primary-bg-pressed`); secondary and ghost fill with Pale Sky (`action-subtle-bg-pressed`).
 - **Focus:** a 2px Signal Blue ring outside the button, on keyboard focus only.
 - **Disabled:** Disabled Gray fill (primary) or border (secondary), Ash label.
-- **Loading:** a 16px spinner takes the icon's place; the label stays.
+- **Loading:** a 16px spinner takes the icon's place, so the width doesn't change; with no icon it sits over the label, which turns transparent but is still read. The button keeps its focus.
 
 ### Metric card
 - **Corner Style:** 12px.
 - **Background:** Paper White with a 1px Hairline Gray border.
 - **Internal Padding:** 20px, with 12px between parts.
 - **Content, top to bottom:** a 20px icon in a 40px Mist Blue circle; the title in Slate (`body-sm`); the value in Ink (`heading-metric`); the trend (arrow + value in `label-sm`), green for up, red for down, Slate for neutral.
-- **States:** `loading` (skeleton the size of the content, no trend, no icon) and `error` (value "—", no trend). The trend can be hidden for a first period with nothing to compare.
+- **States:** `loading` (skeleton the size of the content, no trend, no icon; the title stays for screen readers) and `error` (value "—", no trend). With no value, the card shows "—". The trend can be hidden for a first period with nothing to compare. Open design questions: [#38](https://github.com/jonlifschitzpersonal-bit/gurises-unidos-dashboard/issues/38).
 - **Limit:** down is always red. A metric where going down is good needs a design decision first.
 
 ### Status badge
